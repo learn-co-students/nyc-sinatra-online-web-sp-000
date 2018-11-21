@@ -1,3 +1,7 @@
 class FiguresController < ApplicationController
-  # add controller methods
+
+  get '/figures/new' do
+    erb :'/landmarks/new'
+  end
+
 end
