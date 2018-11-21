@@ -3,6 +3,20 @@
 <form method="post" action="/landmarks/new">
   <label for="figure_name">Name </label> <input id="figure_name" name="figure[name]" type="text" />
 
+  <label for="figure_titles">Titles</label>
+
+  <br></br>
+
+  <% @titles.each do |title| %>
+    <input id="figure_titles" name="figure[title_ids][]" type="checkbox" />
+  <% end %>
+
+  <br></br>
+
+  <% @landmarks.each do |landmark| %>
+    <input id="figure_landmarks" name="figure[landmark_ids][]" type="checkbox" />
+  <% end %>
+
 </form>
 
 <a class="button" href="/figures">Landmarks</a>
