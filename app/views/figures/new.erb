@@ -1,0 +1,47 @@
+<h2>Create New Figure</h2>
+
+<form method="post" action="/figures/new">
+  <label for="figure_name">Name </label> <input id="figure_name" name="figure[name]" type="text" />
+
+  <h3><label for="figure_titles">Titles</label></h3>
+
+  <% @titles.each do |title| %>
+    <p><%= title.name %> <input id="title_<%= title.id %>" name="figure[title_ids][]" value="<%= title.id %>" type="checkbox" /></p>
+  <% end %>
+
+  <h3><label for="new_title">Create New Title:</label></h3>
+
+  <input id="new_title" name="title[name]" type="text" />
+
+  <br></br>
+
+  <% @landmarks.each do |landmark| %>
+    <p><%= landmark.name %><input id="landmark_<%= landmark.id %>" name="figure[landmark_ids][]" value="<%= landmark.id %>" type="checkbox" /></p>
+  <% end %>
+
+  <h3><label for="new_landmark">Create New Landmark:</label></h3>
+
+  <input id="new_landmark" name="landmark[name]" type="text" />
+
+  <input type="submit" value="Create New Figure" />
+</form>
+
+<a class="button" href="/figures">Landmarks</a>
+<a class="button" href="/">Home</a>
+
+<!-- visit '/figures/new'
+fill_in :figure_name, :with => "Doctor Who"
+check "title_#{Title.first.id}"
+click_button "Create New Figure"
+figure = Figure.last
+expect(Figure.all.count).to eq(3)
+expect(figure.name).to eq("Doctor Who")
+expect(figure.titles).to include(Title.first) -->
+
+
+<!-- expect(page.body).to include('<form')
+expect(page.body).to include('figure[name]')
+expect(page.body).to include('figure[title_ids][]')
+expect(page.body).to include('figure[landmark_ids][]')
+expect(page.body).to include('landmark[name]')
+expect(page.body).to include('title[name]') -->

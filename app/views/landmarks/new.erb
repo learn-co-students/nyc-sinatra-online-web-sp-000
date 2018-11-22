@@ -8,13 +8,13 @@
   <br></br>
 
   <% @titles.each do |title| %>
-    <input id="figure_titles" name="figure[title_ids][]" type="checkbox" />
+    <input id="title.id" name="figure[title_ids][]" value="title[name]" type="checkbox" />
   <% end %>
 
   <br></br>
 
   <% @landmarks.each do |landmark| %>
-    <input id="figure_landmarks" name="figure[landmark_ids][]" type="checkbox" />
+    <input id="landmark[name]" name="figure[landmark_ids][]" type="checkbox" />
   <% end %>
 
 </form>

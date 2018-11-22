@@ -1,0 +1,22 @@
+<form>
+
+  <h2>Edit <%= @figure.name %>!</h2>
+
+  <h3><label for="figure_name">Name:</label></h3>
+  <input id="figure_name" name="figure[name]" type="text" />
+
+  <h3><label for="new_landmark">New Landmark:</label></h3>
+  <input id="new_landmark" name="landmark[name]" type="text" />
+
+  <% @titles.each do |title| %>
+    <p><%= title.name %> <input id="figure[title_ids]" name="figure[title_ids][]" value="<%= title.id %>" type="checkbox" /></p>
+  <% end %>
+
+
+
+</form>
+
+
+
+<!-- fill_in :figure_name, with: "Missy"
+fill_in :new_landmark, with: "Big Tower" -->
