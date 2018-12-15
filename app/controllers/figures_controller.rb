@@ -10,4 +10,8 @@ class FiguresController < ApplicationController
     @landmarks = Landmark.all
     erb :'/figures/new'
   end
+  
+  post '/figures' do
+    @figure = Figure.create(name: params[:figure][:name])
+  end
 end
