@@ -11,9 +11,14 @@ class FiguresController < ApplicationController
     erb :'/figures/new'
   end
   
-  get 'figures/:id' do
-    @figure = Figure.find(params[:id])
+  get '/figures/:id' do
+    @figure = Figure.find_by_id(params[:id])
     erb :'figures/show'
+  end
+  
+  get'/figures/:id/edit' do
+    @figure = Figure.find_by_id(params[:id])
+    erb :'figures/edit'
   end
   
   post '/figures' do
@@ -26,5 +31,6 @@ class FiguresController < ApplicationController
     if !params[:landmark].empty?
       @figure.landmarks << Landmark.create(params[:landmark])
     end
+    redirect :"/figures/#{@figure.id}"
   end
 end
