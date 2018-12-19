@@ -1,0 +1,13 @@
+<h1>Figures</h1>
+
+<h3>Name of Person</h3>
+
+  <% @figures.each do |figure| %>
+    <%binding.pry%>
+    <p><%=figure.name%></p>
+      <ul>
+        <%figure.titles.each do |title|%>
+          <li><%=title.name%></li>
+        <%end%>
+      </ul>
+  <%end%>
