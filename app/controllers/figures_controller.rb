@@ -10,12 +10,12 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @figure = Figure.create(params['figure'])
-
+    binding.pry
     unless params['landmark']['name'] == null
       @landmark = Landmark.create(params['landmark']['name'])
       @figure.landmarks << @landmark
     end
-    
+
     unless params['title']['name'] == null
       @title = Title.create(params['title']['name'])
 
