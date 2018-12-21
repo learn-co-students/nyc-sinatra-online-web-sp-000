@@ -1,10 +1,21 @@
-<h2>All Historical Landmarks</h2>
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title> Edit Figure </title>
+  </head>
+  
+  <body>
 
-<% @landmarks.each do |landmark| %>
-  <a href="/landmarks/<%= landmark.id %>"><%= landmark.name %></a> - <%= landmark.year_completed %><br>
-<% end %>
-<br><br>
-<a href="/landmarks/new"><input type="button" value="Create New Landmark"></a>
-
-<a class="button" href="/figures">Figures</a>
-<a class="button" href="/">Home</a>
+    <h1>All Historical Landmarks</h1>
+    
+    <% @landmarks.each do |landmark| %>
+      <a href="/landmarks/<%= landmark.id %>"><%= landmark.name %></a> - <%= landmark.year_completed %><br>
+    <% end %>
+    <br><br>
+    <a href="/landmarks/new"><input type="button" value="Create New Landmark"></a>
+    
+    <a class="button" href="/figures">Figures</a>
+    <a class="button" href="/">Home</a>
+  </body> 
+  
+</html> 

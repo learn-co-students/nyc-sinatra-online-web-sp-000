@@ -3,24 +3,25 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Show Figures</title>
+    <title>Show Figure</title>
   </head> 
   <body>
     <h1><%= @figure.name %></h1>
-    <h4>Titles: </h4>
-      <% @figure.titles.each do |title| %>
-        <li> <%= title.name %> </li>
-      <% end %> 
-      
-      <br> <br> <br> 
-    
-    <h4> Landmarks: </h4>
-     <% @figure.landmarks.each do |landmark| %>
-        <li> <%= landmark.name %> </li>
-      <% end %> 
-        <br> <br> <br> 
-        
-    <a href="/figures/<%= @figure.id %>/edit"><input type="button" value="Edit"></a>
-
-  </body>
+      <p>Titles:</p><br>
+      <ul>
+        <% @figure.titles.each do |title| %>
+        <li><%= title.name %></li>
+        <% end %>
+      </ul>
+      <br>
+      <p>Landmarks:</p><br>
+      <ul>
+        <% @figure.landmarks.each do |landmark| %>
+        <li><%= landmark.name %></li>
+        <% end %>
+      </ul>
+      <br>
+      <br>
+      <a href="/figures/<%= @figure.id %>/edit"><input type="button" value="Edit"></a>
+    </body>
 </html>
