@@ -11,7 +11,7 @@ describe FiguresController do
   end
 
   after do
-    Figure.destroy_all
+    Figure.destroy_all #after done with spec, these are destroyed because you dont want them to run mem
     Title.destroy_all
     Landmark.destroy_all
   end

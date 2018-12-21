@@ -1,0 +1,26 @@
+#Show Page --- 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Show Figures</title>
+  </head> 
+  <body>
+    <h1><%= @figure.name %></h1>
+    <h4>Titles: </h4>
+      <% @figure.titles.each do |title| %>
+        <li> <%= title.name %> </li>
+      <% end %> 
+      
+      <br> <br> <br> 
+    
+    <h4> Landmarks: </h4>
+     <% @figure.landmarks.each do |landmark| %>
+        <li> <%= landmark.name %> </li>
+      <% end %> 
+        <br> <br> <br> 
+        
+    <a href="/figures/<%= @figure.id %>/edit"><input type="button" value="Edit"></a>
+
+  </body>
+</html>

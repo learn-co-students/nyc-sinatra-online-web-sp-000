@@ -1,0 +1,17 @@
+<!-- Index Page --> 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Figures Index</title>
+  </head> 
+  <body> 
+    <h1>Figures</h1>
+    <% @figures.each do |figure| %> 
+    <% figure_link = "/figures/#{figure.id}" %> 
+      <p><a href="<%= figure_link %>"><%= figure.name %></a></p>
+    <% end %> 
+    
+    <a href="/figures/new"><input type="button" value="Create New Figure"></a>
+  </body>
+</html> 
