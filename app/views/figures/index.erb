@@ -2,7 +2,7 @@
   <th>Person Name</th>
   <tr>
     <% @figures.each do |figure| %>
-      <td align="center"><a href="/figures/<%= figure.id %>"><%= figure.name %></a>
+      <td align="left"><a href="/figures/<%= figure.id %>"><%= figure.name %></a>
       <ul>
         <%figure.titles.each do |title|%>
         <li><%=title.name%></li>
@@ -13,6 +13,6 @@
 </table>
 <br>
 
-<a class="button" href="figures/new">Create New Figure</a>
-<a class="button" href="/landmarks">View Landmarks</a>
-<a class="button" href="/">Home</a>
+<a class="button" href="figures/new">Create New Figure</a><br>
+<a class="button" href="/landmarks">View Landmarks</a><br>
+<a class="button" href="/">Home</a><br>
