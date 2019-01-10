@@ -1,0 +1,35 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Name</th> &nbsp;&nbsp;&nbsp;
+    <th>Title</th>&nbsp;&nbsp;&nbsp;
+    <th>Landmark(s)</th> &nbsp;&nbsp;&nbsp;
+  </tr>
+  <tr>
+    <td>
+      <%= @figure.name %>
+    </td>
+    <td>
+      <ul>
+      <%@figure.titles.each do |t|%>
+      <li><%= t.name %></li>
+      <%end%>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <%@figure.landmarks.each do |l|%>
+        <li><%= l.name %> - Year Completed: <%= l.year_completed %></li>
+        <%end%>
+      </ul>
+    </td>
+  </tr>
+<table>
+
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<a class="button" href="/figures">Figures</a>
