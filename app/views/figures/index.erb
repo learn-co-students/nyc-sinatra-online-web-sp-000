@@ -1,6 +1,5 @@
-<h2>All Historical Landmarks</h2>
-
+<h2>All Historical Figures</h2>
+<% @figures.each_with_index do |figure, index| %>
+  <a href="/figures/<%=figure.id%>"><h3> <%= index+1 %>. <%= figure.name %> </h3></a>
+  <% end %>
 <!-- add content here -->
-
-<a class="button" href="/figures">Figures</a>
-<a class="button" href="/">Home</a>

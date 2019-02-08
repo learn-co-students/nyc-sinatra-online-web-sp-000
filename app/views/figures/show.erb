@@ -1,2 +1,4 @@
 <%= @figure.name %>
-<%= @figure.titles %>
+<% @figure.landmarks.each do |landmark| %>
+<%= landmark.name %>
+<% end %>
