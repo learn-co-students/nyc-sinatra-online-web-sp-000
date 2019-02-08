@@ -140,6 +140,3 @@ Here's a sample form you can use for reference:
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/nyc-sinatra'>Sinatra NYC</a> on Learn.co and start learning to code for free.</p>
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/nyc-sinatra'>Sinatra NYC</a> on Learn.co and start learning to code for free.</p>
-
-
-{"figure_name"=>"New Figure", "figure"=>{"title_ids"=>["1"], "landmark_ids"=>["1"]}, "title"=>{"name"=>"New Title"}, "landmark"=>{"name"=>"New Landmark", "year"=>"1969"}}

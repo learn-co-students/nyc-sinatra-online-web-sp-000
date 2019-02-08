@@ -6,8 +6,19 @@ class FiguresController < ApplicationController
   end
 
   post "/figures" do
+    puts params
     @figure = Figure.create(name: params[:figure_name])
-    binding.pry
+
+    if !params[:title][:name].nil?
+      title = Title.create(params[:title])
+      @figure.titles << title
+    end
+
+    if !params[:landmark][:name].blank?
+      @landmark = Landmark.create(params[:landmark])
+      @figure.landmarks << @landmark
+    end
+
     if !params[:figure][:landmark_ids].nil?
       @landmark = Landmark.find(params[:figure][:landmark_ids][0])
       @figure.landmarks << @landmark
@@ -20,14 +31,6 @@ class FiguresController < ApplicationController
       end
     end
 
-    if !params[:title][:name].blank?
-      title = Title.create(params[:title])
-      @figure.titles << title
-    end
-    if !params[:landmark][:name].blank?
-      landmark = Landmark.create(params[:landmark])
-      @figure.landmarks << landmark
-    end
     redirect to "figures/#{@figure.id}"
   end
 
