@@ -29,6 +29,7 @@ landmarks_list = {
   }
 
 landmarks_list.each do |name, landmark_hash|
+
   p = Landmark.new
   p.name = name
   landmark_hash.each do |attribute, value|
@@ -44,7 +45,7 @@ figure_list = {
     },
     "Ada Lovelace" => {
     },
-    "Linus Torvalds" => { 
+    "Linus Torvalds" => {
     }
   }
 
