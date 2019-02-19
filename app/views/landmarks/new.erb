@@ -1,6 +1,27 @@
 <h2>Create New Landmark</h2>
 
-<!-- add content here -->
-
-<a class="button" href="/figures">Landmarks</a>
+<a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
+
+<form action="/landmarks" method="POST">
+<p><label for="landmark[name]">Name: </label>
+<input type="text" name="landmark[name]" id="landmark_name">
+</p>
+<p><label for="landmark[year_completed]">Name: </label>
+<input type="text" name="landmark[year_completed]" id="landmark_year_completed">
+</p>
+
+<p>Select Figure:
+<% @figures.each do |figure| %>
+ <br> <input type="radio" name="landmark[figure_ids][]" id="figure_<%=figure.id%>" value="<%=figure.id%>">
+ <%= figure.name %>
+
+<% end %>
+</p>
+<p>Or create a new figure:<br>
+<label for="figure[name]">Name: </label>
+  <input type="text" name="figure[name]" id="new_figure">
+</p>
+
+<input type="submit" value="Create New Landmark">
+</form>
