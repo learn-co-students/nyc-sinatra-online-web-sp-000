@@ -4,3 +4,8 @@
 
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
+<%Landmark.all.each do |landmark|%>
+<ol>
+<li><a href="/landmarks/<%=landmark.id%>"><%=landmark.name%>, completed <%=landmark.year_completed%></a></li>
+</ol>
+<%end%>

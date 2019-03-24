@@ -4,3 +4,36 @@
 
 <a class="button" href="/figures">Landmarks</a>
 <a class="button" href="/">Home</a>
+
+<form action="/landmarks/<%=@landmark.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">  
+  <label>Name:</label>
+ 
+  <br>
+ 
+  <input type="text" name="landmark[name]" id="name" value="<%=@landmark.name%>">
+ 
+  
+ <br>
+ <label>Year Completed:</label>
+  <input type="text" name="landmark[year_completed]" id="year_completed" value="<%=@landmark.year_completed%>">
+ 
+  <br>
+  <label>Choose a figure:</label>
+ 
+  <br>
+ 
+  <%Figure.all.each do |figure|%>
+    <input type="radio" name="landmark[figure_id]" id="<%= figure.id%>" value="<%=figure.id%>" <%='checked' if @landmark.figure_id == figure.id %>><%=figure.name%></input>
+  <%end%>
+ 
+  <br>
+ <label>and/or, create a new figure:</label>
+  <br>
+  <label>name:</label>
+    <input  type="text" name="figure[name]" id="figure_name"></input>
+  <br>
+  
+  <input type="submit" value="Edit Landmark">
+</form>
+
