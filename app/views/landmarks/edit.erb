@@ -5,12 +5,8 @@
   <input type="hidden" name="_method" value="patch">
   <label>Name</label>
   <input type="text" id="landmark_name" name="landmark[name]" value="<%= @landmark.name%>"><br></br>
-  <label>Edit Landmarks:</label><br>
-
-  <% Landmark.all.each do |landmark| %>
-    <label><%= landmark.name %></label>
-    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="<%= landmark.name %>" <%='checked' if @figure.landmarks.include?(landmark) %>>
-  <% end %>
+  <label>Edit Year Completed:</label><br>
+  <input type="text" id="landmark_year_completed" name="landmark[year_completed]" value="<%= @landmark.year_completed%>"><br></br>
  <label>Add New:</label>
  <input type="text" id="new_landmark" name="landmark[name]"><br></br>
 
