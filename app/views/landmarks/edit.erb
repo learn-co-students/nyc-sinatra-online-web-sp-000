@@ -8,13 +8,13 @@
   <label>Edit Year Completed:</label><br>
   <input type="text" id="landmark_year_completed" name="landmark[year_completed]" value="<%= @landmark.year_completed%>"><br></br>
 
- <label>Edit Titles</label><br>
+ <!-- <label>Edit Titles</label><br>
  <% Title.all.each do |title| %>
     <label><%= title.name %></label>
     <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="<%= title.name %>" <%='checked' if @figure.titles.include?(title) %>>
   <% end %></br>
  <label>Add New Title:</label>
- <input type="text" id="new_title" name="title[name]"><br></br>
+ <input type="text" id="new_title" name="title[name]"><br></br> -->
 
 
 
@@ -23,5 +23,5 @@
 
 </form>
 
-<a class="button" href="/figures">Landmarks</a>
+<a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
