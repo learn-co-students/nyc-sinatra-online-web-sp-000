@@ -4,20 +4,11 @@
 <form action="/landmarks/<%= @landmark.id %>" method="POST">
   <input type="hidden" name="_method" value="patch">
   <label>Name</label>
-  <input type="text" id="name" name="landmark[name]" value="<%= @landmark.name%>"><br>
+  <input type="text" id="name" name="landmark[name]" value="<%= @landmark.name%>">
+  <br>
   <label>Edit Year Completed:</label><br>
-  <input type="text" id="year_completed" name="landmark[year_completed]" value="<%= @landmark.year_completed%>"><br></br>
-
- <!-- <label>Edit Titles</label><br>
- <% Title.all.each do |title| %>
-    <label><%= title.name %></label>
-    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="<%= title.name %>" <%='checked' if @figure.titles.include?(title) %>>
-  <% end %></br>
- <label>Add New Title:</label>
- <input type="text" id="new_title" name="title[name]"><br></br> -->
-
-
-
+  <input type="text" id="year_completed" name="landmark[year_completed]" value="<%= @landmark.year_completed%>">
+  <br>
 
   <input type="submit" value="Edit Landmark">
 
