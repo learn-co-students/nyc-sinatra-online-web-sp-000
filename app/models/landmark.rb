@@ -1,3 +1,8 @@
+require_relative './concerns/slugifiable.rb'
+
 class Landmark < ActiveRecord::Base
-  # add relationships here
+  belongs_to :figure
+
+  include Slugifiable
+  extend Slugifiable
 end
