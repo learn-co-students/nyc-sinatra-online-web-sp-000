@@ -1,0 +1,11 @@
+<h1>Historical Figures</h1>
+<a href="/figures/new">Add Figure</a><br>
+
+<% @figures.each do |figure|%>
+    <ul>
+        <li>
+            <h3><a href="/figures/<%= figure.id %>"><%= figure.name %></a></h3>
+        </li>
+    </ul>
+<% end %>
+<
