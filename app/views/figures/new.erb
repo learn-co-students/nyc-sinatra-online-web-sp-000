@@ -1,0 +1,51 @@
+<h1>Create a Historical Figure</h1>
+
+<form action="/figures" method="POST">
+    <!-- Figure Name -->
+    <h3></h3><label>Who Did You Have in Mind?</label>
+    <input type="text" id="figure_name" name="figure[name]"><br></br>
+
+     <!-- Checkbox Titles -->
+    <label><h4>Title(s):</h4></label>
+    <% Title.all.each do |title| %>
+        <label><%= title.name %></label>
+        <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>"><br>
+    <% end %>
+
+    <!-- Title Name -->
+    <label><h4>What Was/Were Their Title(s)?</h4></label>
+    <input type="text" id="new_title" name="title[name]">
+
+    <!-- Checkbox Landmarks -->
+    <label><h4>Landmark(s):</h4></label>
+    <% Landmark.all.each do |landmark| %>
+        <label><%= landmark.name %></label>
+        <input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><br>
+    <% end %>
+
+    <!-- New Landmark -->
+    <label><h4>Any Landmarks?</h4></label>
+    <label>Name:</label>
+    <input type="text" id="new_landmark" name="landmark[name]">
+    <label>Year:</label>
+    <input type="text" name="landmark[year_completed]">
+
+    <!-- submit -->
+    <input type="submit" value="Create New Figure">
+</form>
+
+<!-- 1ST ATTEMPT -->
+<!-- <form action="/figures" method="POST">
+    <div class="">
+        <label for="name">Who Did You Have in Mind?</label>
+        <h3><input type="text" name="figure[name]" value="figure[figure_name]"></h3><br>
+
+        <label for="">What Was Their Title?</label>
+        <h3><input type="text" name="title[name]" value="figure[title_ids][]"></h3><br>
+
+        <label for="">Landmark</label>
+        <h3><input type="text" name="landmark[name]" value="figure[landmark_ids][]"></h3><br>
+
+        <input type="submit" name="submit">
+    </div>
+</form> -->
