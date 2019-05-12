@@ -1,0 +1,24 @@
+<h2>Single Historical Figure Page</h2>
+
+<!-- add content here -->
+<h4><%=@figure.name%></h4>
+
+<h5>Landmarks:<br>
+  <% @figure.landmarks.each do |landmark| %>
+    Name: <a href="/landmarks/<%=landmark.id%>"><%= landmark.name %> Year: <%= landmark.year_completed %></a> <br>
+  <% end %>
+</h5>
+
+<h5>Titles:<br>
+  <% @figure.titles.each do |title| %>
+    <%= title.name %><br>
+  <% end %>
+</h5>
+
+
+
+
+
+<a class="button" href="/figures">Figures</a>
+<a class="button" href="/landmarks">Landmarks</a>
+<a class="button" href="/">Home</a>
