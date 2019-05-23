@@ -3,4 +3,12 @@
 <form action="/figures" method="post">
   <label for="name">Name</label>
   <input type="text" name="figure[name]" id="name"/>
+
+  <h3>Titles:</h3>
+  <% Figure.all.each do |f| %>
+  <label><%= f.name %></label>
+  <input type="checkbox" id="<%= f.name %>" name="figure[title_ids][]"/><br>
+  <% end %>
+
+  
 </form>
