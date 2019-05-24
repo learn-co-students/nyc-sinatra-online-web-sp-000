@@ -5,9 +5,9 @@
   <input type="text" name="figure[name]" id="figure_name"/>
 
   <h3>Titles:</h3>
-  <% Figure.all.each do |f| %>
-  <label><%= f.name %></label>
-  <input type="checkbox" id="<%= f.name %>" name="figure[title_ids][]"/><br>
+  <% Title.all.each do |t| %>
+  <label><%= t.name %></label>
+  <input type="checkbox" id="title_<%= t.id %>" name="figure[title_ids][]"/><br>
   <% end %>
 
   <h3>Create a New Title</h3>
@@ -17,7 +17,7 @@
   <h3>Landmarks</h3>
   <% Landmark.all.each do |l| %>
   <label><%= l.name %></label>
-  <input type="checkbox" id="<%= l.name %>" name="figure[landmark_ids][]"/><br>
+  <input type="checkbox" id="landmark_<%= l.id %>" name="figure[landmark_ids][]"/><br>
   <% end %>
 
   <h3>Create a New Landmark:</h3>
