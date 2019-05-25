@@ -7,7 +7,7 @@
   <h3>Titles:</h3>
   <% Title.all.each do |t| %>
   <label><%= t.name %></label>
-  <input type="checkbox" id="title_<%= t.id %>" name="figure[title_ids][]"/><br>
+  <input type="checkbox" id="title_<%= t.id %>" name="figure[title_ids][]" value="<%= t.id %>"/><br>
   <% end %>
 
   <h3>Create a New Title</h3>

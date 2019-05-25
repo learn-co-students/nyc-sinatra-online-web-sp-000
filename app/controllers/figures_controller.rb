@@ -23,8 +23,12 @@ class FiguresController < ApplicationController
     end
     # binding.pry
     if params[:figure][:title_ids]
-
-      title = Title.find
+       params[:figure][:title_ids].each do |t|
+        #  binding.pry
+       title = Title.find(t)
+       @figure.titles << t
+       end
     end
+
   end
 end
