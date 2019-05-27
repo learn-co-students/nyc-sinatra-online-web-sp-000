@@ -23,6 +23,10 @@ class FiguresController < ApplicationController
     erb :'/figures/show'
   end
 
+  patch '/figures' do
+    redirect '/figures/#{@figure.id}'
+  end
+
   post '/figures' do
     @figure = Figure.create(:name => params[:figure][:name])
 
