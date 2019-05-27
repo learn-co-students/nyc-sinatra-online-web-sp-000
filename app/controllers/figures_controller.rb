@@ -13,7 +13,8 @@ class FiguresController < ApplicationController
 
   get '/figures/:id/edit' do
     @figure = Figure.all.find_by_id(params[:id])
-
+    @landmarks = Landmark.all
+    @titles = Title.all
     erb :'figures/edit'
   end
 
@@ -24,6 +25,11 @@ class FiguresController < ApplicationController
   end
 
   patch '/figures' do
+    @figure = Figure.find_by_id(params[:id])
+    @figure.name = params[:figure][:name]
+
+    if params[:title]
+    end
     redirect '/figures/#{@figure.id}'
   end
 
