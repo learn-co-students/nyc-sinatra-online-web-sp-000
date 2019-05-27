@@ -11,8 +11,15 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
+  get '/figures/:id/edit' do
+    @figure = Figure.all.find_by_id(params[:id])
+
+    erb :'figures/edit'
+  end
+
   get '/figures/:id' do
-    
+    @figure = Figure.all.find_by_id(params[:id])
+    # binding.pry
     erb :'/figures/show'
   end
 
@@ -44,5 +51,6 @@ class FiguresController < ApplicationController
         @figure.landmarks << landmark
       end
     end
+
   end
 end
