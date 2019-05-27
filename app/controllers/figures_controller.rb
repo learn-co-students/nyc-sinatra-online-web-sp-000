@@ -24,13 +24,18 @@ class FiguresController < ApplicationController
     erb :'/figures/show'
   end
 
-  patch '/figures' do
+  patch '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
     @figure.name = params[:figure][:name]
-
-    if params[:title]
+      # binding.pry
+    if params[:figure][:title_ids]
+      @figures.titles.clear
+      params[:figure][:title_ids].each do |id|
+        title = Title.find_by_id(id)
+        @figure.titles << title
+      end
     end
-    redirect '/figures/#{@figure.id}'
+    redirect "/figures/#{@figure.id}"
   end
 
   post '/figures' do
@@ -61,6 +66,6 @@ class FiguresController < ApplicationController
         @figure.landmarks << landmark
       end
     end
-
+    redirect "/figures/#{@figure.id}"
   end
 end
