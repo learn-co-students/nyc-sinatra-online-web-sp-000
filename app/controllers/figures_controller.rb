@@ -11,10 +11,12 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
+  get '/figures/:id' do
+    
+    erb :'/figures/show'
+  end
+
   post '/figures' do
-
-    @landmark = params[:landmark]
-
     @figure = Figure.create(:name => params[:figure][:name])
 
     if !params[:title][:name].empty?
@@ -42,6 +44,5 @@ class FiguresController < ApplicationController
         @figure.landmarks << landmark
       end
     end
-    
   end
 end
