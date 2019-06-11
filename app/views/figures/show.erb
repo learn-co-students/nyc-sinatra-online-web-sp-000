@@ -1,0 +1,26 @@
+<% if flash.has?(:message) %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
+<h3><%= @figure.name %></h3>
+<b>Titles:</b>
+<% if !@figure.titles.empty? %>
+  <ul>
+  <% @figure.titles.each do |title| %>
+    <li><%= title.name %></li>
+  <% end %>
+  </ul>
+<% end %>
+<br>
+<b>Landmarks:</b>
+<% if !@figure.landmarks.empty? %>
+  <ul>
+  <% @figure.landmarks.each do |landmark| %>
+    <li><%= landmark.name %></li>
+  <% end %>
+  </ul>
+<% end %>
+<br>
+<br>
+<b><a href="<%= "/figures/#{@figure.id}/edit" %>">Edit Figure</a></b>
+<%# binding.pry %>
