@@ -1,0 +1,18 @@
+<table>
+
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Landmarks</th>
+  </tr>
+  <tr>
+    <td><%=@figure.id%></td>
+    <td><%=@figure.name%></td>
+    <td>
+      <% @figure.landmarks.each do |landmark| %>
+        <%=landmark.name%> - <%=landmark.year_completed%><br>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<a href=<%="/figures/#{@figure.id}/edit"%>>Edit</a>

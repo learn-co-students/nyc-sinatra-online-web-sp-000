@@ -1,0 +1,14 @@
+<table>
+
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+
+  <% Figure.all.each do |figure| %>
+    <tr>
+      <td><%=figure.id%></td>
+      <td><a href=<%="figures/#{figure.id}"%>> <%=figure.name%> </a></td>
+    </tr>
+  <% end %>
+</table>
