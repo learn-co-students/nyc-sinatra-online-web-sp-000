@@ -1,6 +1,6 @@
-<h2>All Historical Landmarks</h2>
-
-<!-- add content here -->
-
-<a class="button" href="/figures">Figures</a>
-<a class="button" href="/">Home</a>
+<h1>All Figures</h1>
+<% @figures.each do |figure| %>
+  <a href="/figures/<%= figure.id %>"><%= figure.name %></a><br>
+<% end %>
+<br><br>
+<a href="/figures/new"><input type="button" value="Create New Figure"></a>
