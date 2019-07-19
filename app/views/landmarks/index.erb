@@ -1,6 +1,25 @@
-<h2>All Historical Landmarks</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sinatra NYC</title>
+  </head>
 
-<!-- add content here -->
+  <body>
 
-<a class="button" href="/figures">Figures</a>
-<a class="button" href="/">Home</a>
+    <h2>All Historical Landmarks</h2>
+
+    <% @landmarks.each do |landmark| %>
+      <h3>Name:</h3>
+        <p><%= landmark.name %></p><br>
+      <h3>Figure:</h3>
+        <p><%= landmark.figure.name %></p><br>
+      <h3>Year Completed:</h3>
+        <p><%= landmark.year_completed %></p><br>
+    <% end %>
+
+
+    <a class="button" href="/landmarks">Figures</a>
+    <a class="button" href="/">Home</a>
+
+  </body>
+</html>
