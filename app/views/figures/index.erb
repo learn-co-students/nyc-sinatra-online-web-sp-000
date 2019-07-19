@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sinatra NYC</title>
+  </head>
+
+  <body>
+
+    <h2>All Historical Figures</h2>
+
+    <% @figures.each do |figure| %>
+      <h3>Name:</h3>
+        <p><%= figure.name %></p><br>
+      <h3>Titles:</h3>
+        <% figure.titles.each do |title| %>
+          <p><%= title.name %></p>
+        <% end %><br>
+      <h3>Landmarks:</h3>
+        <% figure.landmarks.each do |landmark| %>
+          <p><%= landmark.name %></p>
+        <% end %>
+    <% end %>
+
+
+    <a class="button" href="/landmarks">Figures</a>
+    <a class="button" href="/">Home</a>
+
+  </body>
+</html>

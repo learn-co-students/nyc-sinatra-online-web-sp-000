@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sinatra NYC</title>
+  </head>
+
+  <body>
+
+    <h1>Create New Figure</h1>
+
+    <form action="/figures" method="POST">
+      <label for="figure_name">Name: </label>
+        <input type="text" id="figure_name" name="figure[name]"><br><br><br>
+      
+      <h3>Titles</h3><br><br>
+      <% @titles.each do |title| %>
+        <input type="checkbox" id="title_<%= title.id %>" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %></input><br>
+      <% end %><br>
+      <h3>Create New Title:</h3>
+      <label for="new_title">Name: </label>
+        <input type="text" id="new_title" name="title[name]"><br><br>
+
+      <h3>Landmarks</h3>
+      <% @landmarks.each do |landmark| %>
+        <input type="checkbox" id="landmark_<%= landmark.id %>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%= landmark.name %></input><br>
+      <% end %><br><br>
+      <h3>Create New Landmark:</h3>
+      <label for="new_landmark">Name: </label>
+        <input type="text" id="new_landmark" name="landmark[name]"><br><br>
+      <label for="landmark_year">Year: </label>
+        <input type="text" id="landmark_year" name="landmark[year]"><br><br>
+
+      <input type="submit" id="submit" value="Create New Figure">
+    </form>
+
+  </body>
+</html>
