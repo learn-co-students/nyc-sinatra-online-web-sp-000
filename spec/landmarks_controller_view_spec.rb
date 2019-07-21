@@ -37,6 +37,7 @@ describe LandmarksController do
   end
 
   it "allows you to see a single landmark" do
+  
     @landmark = Landmark.first
     get "/landmarks/#{@landmark.id}"
     expect(last_response.status).to eq(200)
@@ -45,6 +46,7 @@ describe LandmarksController do
   end
 
   it "allows you to view the form to edit a single landmark" do
+
     @landmark = Landmark.first
     get "/landmarks/#{@landmark.id}/edit"
 
