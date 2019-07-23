@@ -12,16 +12,22 @@ get '/figures/new' do
 end
 
 post '/figures' do
-  @figure = Figure.new(name: params[:figure][:name])
+  @figure = Figure.create(name: params[:figure][:name])
 #  binding.pry
 
   if !params["title"]["name"].empty?
-  @figure.title << Title.find_or_create_by(name: params["title"]["name"])
+  @figure.titles << Title.find_or_create_by(name: params["title"]["name"])
   end
-#  @figure.title = Title.find_or_create_by(name: params["title"]["name"])
-#  @figure.landmark = Landmark.find_or_create_by(name: params["landmark"]["name"])
+
+
+  if !params["landmark"]["name"].empty?
+  @figure.landmarks << Landmark.find_or_create_by(name: params["landmark"]["name"])
+  end
+
+
 #  @figure.title_ids = params["figure"]["title_ids"]
 #binding.pry
+  @figure.save
 end
 
 
