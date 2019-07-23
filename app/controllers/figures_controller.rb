@@ -38,9 +38,6 @@ get "/figures/:id" do
   erb :'/figures/show'
 end
 
-
-
-
 get '/figures/:id/edit' do
   @figure = Figure.find(params[:id])
   @landmarks = Landmark.all
@@ -52,11 +49,7 @@ patch '/figures/:id' do
   @figure = Figure.find(params[:id])
   @figure.update(name: params[:figure][:name])
 
-
-
   @figure.titles = Title.find_or_create_by(params[:figure][:title_ids])
-
-
   @figure.landmarks = Landmark.find_or_create_by(params[:figure][:landmark_ids])
 
   @figure.save
