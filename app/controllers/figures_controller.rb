@@ -17,32 +17,19 @@ post '/figures' do
 
   if !params["title"]["name"].empty?
   @figure.titles << Title.find_or_create_by(name: params["title"]["name"])
+    elsif params["title"]["name"].empty?
+      @figure.titles << Title.find_or_create_by(params[:figure][:title_ids])
   end
-
 
   if !params["landmark"]["name"].empty?
   @figure.landmarks << Landmark.find_or_create_by(name: params["landmark"]["name"])
+    elsif
+      @figure.landmarks << Landmark.find_or_create_by(params[:figure][:landmark_ids])
   end
 
 
-#  @figure.title_ids = params["figure"]["title_ids"]
-#binding.pry
   @figure.save
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
