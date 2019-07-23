@@ -8,9 +8,14 @@ end
 
 post '/figures' do
   @figure = Figure.new(name: params[:figure][:name])
-  @figure.title = Title.find_or_create_by(name: params["title"]["name"])
-  @figure.landmark = Landmark.find_or_create_by(name: params["landmark"]["name"])
-  @figure.title_ids = params["figure"]["title_ids"]
+
+  if !params["title"]["name"].empty?
+  @figure.title << Title.find_or_create_by(name: params["title"]["name"])
+
+  end
+#  @figure.title = Title.find_or_create_by(name: params["title"]["name"])
+#  @figure.landmark = Landmark.find_or_create_by(name: params["landmark"]["name"])
+#  @figure.title_ids = params["figure"]["title_ids"]
 #binding.pry
 end
 
