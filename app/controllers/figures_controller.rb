@@ -7,6 +7,7 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do 
+    @titles = Title.all
     @figures = Figure.all
     erb :'/figures/new'
   end

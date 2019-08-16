@@ -3,10 +3,21 @@
 <form action="/figures" method="POST">
   <label>Name:</label>
   <input type= "text" name="figure[name]" id="figure_name"><br><br>
+  
  <label><strong>Title(s):</strong></label><br>
  <em>Choose from an Existing Title</em><br>
+ <% @titles.each do |title| %>
+ <input type="checkbox" name="figure[title_id][]" value="<%=title.id%>" id="title_<%=title.id%>">
+ <%=title.name%>
+ <% end %><br>
+ 
+ <em>Create title:</em>
+ <input type="text" name="figure[title]" id= "figure_title">
+ <input type="button"value="Title"> <br>
+ <br>
  
  
- <input type="text" name="figure[title_ids][]" id="figure[name]">
+ 
+ <input type="text" name="figure[title_id][]" id="figure[name]">
  <input type="submit" value="Create Figure">
 </form>
