@@ -50,13 +50,19 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
-  get '/owners/:id' do 
+  get '/figures/:id' do 
     @figure = Figure.find(params[:id])
     erb :'/figures/show'
   end
 
   patch '/figures/:id' do 
+   @title = params[:title]
+   @title_ids= params[:figure][:title_id]
+   @landmark= params[:landmark]
+   @landmark_ids = params[:figure][:landmark_ids]
    
+   @figure = Figure.find(params[:id])
+   @figure.name = params[:figure][:name]
   end
   
   
