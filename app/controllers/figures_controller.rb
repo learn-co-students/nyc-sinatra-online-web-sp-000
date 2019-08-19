@@ -60,9 +60,10 @@ class FiguresController < ApplicationController
    @title_ids= params[:figure][:title_id]
    @landmark= params[:landmark]
    @landmark_ids = params[:figure][:landmark_ids]
-   
    @figure = Figure.find(params[:id])
    @figure.name = params[:figure][:name]
+   @figure.save
+   redirect  "/figures/#{@figure.id}"
   end
   
   
