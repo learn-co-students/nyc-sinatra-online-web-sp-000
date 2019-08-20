@@ -3,7 +3,7 @@
 <form action="/figures" method="POST">
   <label>Name:</label>
   <input type= "text" name="figure[name]" id="figure_name">
-  <input type="submit" value="Create Figure"><br><br>
+  <br><br>
   
  <label><strong>Title(s):</strong></label><br>
  <em>Choose from an Existing Title</em><br>
@@ -13,8 +13,8 @@
  <% end %><br>
  
  <em>Create a New Title:</em>
- <input type="text" name="figure[title]" id= "figure_title">
- <input type="button"value="Title"> <br>
+ <input type="text" name="title[name]" id= "figure_title">
+
  <br>
  
  
@@ -32,7 +32,7 @@
  <input type="button"value="Landmark"> 
  <em>Year:</em>
  <input type="text" name="figure[year_completed]" id="figure_year">
- <input type="button" value="Year Completed">
+ <input type="Submit" value="Create New Figure">
  <br>
  
  
