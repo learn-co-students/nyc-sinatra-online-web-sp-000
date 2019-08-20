@@ -1,5 +1,5 @@
 class FigureTitle < ActiveRecord::Base
   # add relationships here
-  belongs_to :figure_id
-  belongs_to :title_id
+  belongs_to :figure
+  belongs_to :title
 end

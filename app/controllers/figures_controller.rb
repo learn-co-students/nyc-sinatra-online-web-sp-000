@@ -59,7 +59,7 @@ class FiguresController < ApplicationController
    @title = params[:title]
    @title_ids= params[:figure][:title_id]
    @landmark= params[:landmark]
-   @landmark_ids = params[:figure][:landmark_ids]
+   @landmark_ids = params[:figure][:landmark_id]
    @figure = Figure.find(params[:id])
    @figure.name = params[:figure][:name]
    @figure.save
