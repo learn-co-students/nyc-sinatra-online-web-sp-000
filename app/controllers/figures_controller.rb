@@ -12,13 +12,16 @@ class FiguresController < ApplicationController
     erb :'/figures/new'
   end
 
-  post '/figures' do 
-    @title = params[:title]
-    @title_ids = params[:figure][:title_id]
-    @landmark = params[:landmark]
-    @landmark_ids = params[:landmark_id]
-    
+  post '/figures' do
     @figure = Figure.create(:name => params[:figure][:name])
+    #binding.pry
+    @title = params[:title]
+    @title_ids = params[:figure][:title_ids]
+    #@landmark = params[:landmark]
+    @landmark_ids = params[:landmark_ids]
+    
+    #@figure = Figure.create(:name => params[:figure][:name])
+ 
       if !@title[:name].empty?
         t=Title.create(:name => @title[:name])
         @figure.titles << t
@@ -27,6 +30,7 @@ class FiguresController < ApplicationController
         @title_ids.each do |id|
           t=Title.find(id)
           @figure.titles << t
+          #@figure.save
       end
     end 
     if !@landmark[:name].empty?
@@ -40,6 +44,7 @@ class FiguresController < ApplicationController
       end
     end
     @figure.save
+    binding.pry
     redirect "/figures/#{@figure.id}"
   end
 
