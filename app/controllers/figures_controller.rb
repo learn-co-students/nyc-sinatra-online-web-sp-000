@@ -14,20 +14,21 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
+    #binding.pry
     @figure = Figure.create(:name => params[:figure][:name])
-   # @figure.landmarks = Landmark
-    @landmark= params[:landmark]
-    @title = params[:title]
+    #binding.pry
+    @landmark= params[:landmark][:name]
+    @title = params[:title][:name]
     @title_ids = params[:figure][:title_ids]
-    #@landmark = params[:landmark]
-    @landmark_ids = params[:landmark_ids]
-    #@figure = Figure.create(:name => params[:figure][:name])
-      if !@title[:name].empty?
-        t=Title.create(:name => @title[:name])
+    @landmark_ids = params[:figure][:landmark_ids]
+    #binding.pry
+      if !@title.empty?
+        t=Title.create(:name => @title)
         @figure.titles << t
       end
-      
+        #binding.pry
       if @title_ids
+      
         @title_ids.each do |id|
           t=Title.find(id)
           @figure.titles << t

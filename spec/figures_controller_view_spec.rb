@@ -43,6 +43,7 @@ describe FiguresController do
     check "landmark_#{Landmark.first.id}"
     click_button "Create New Figure"
     figure = Figure.last
+    #binding.pry
     expect(Figure.all.count).to eq(3)
     expect(figure.name).to eq("Doctor Who")
     expect(figure.landmarks).to include(Landmark.first)
