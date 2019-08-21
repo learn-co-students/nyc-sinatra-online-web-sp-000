@@ -1,3 +1,4 @@
+require 'pry'
 class FiguresController < ApplicationController
   # add controller methods
   
@@ -14,18 +15,18 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @figure = Figure.create(:name => params[:figure][:name])
-    #binding.pry
+   # @figure.landmarks = Landmark
+    @landmark= params[:landmark]
     @title = params[:title]
     @title_ids = params[:figure][:title_ids]
     #@landmark = params[:landmark]
     @landmark_ids = params[:landmark_ids]
-    
     #@figure = Figure.create(:name => params[:figure][:name])
- 
       if !@title[:name].empty?
         t=Title.create(:name => @title[:name])
         @figure.titles << t
       end
+      
       if @title_ids
         @title_ids.each do |id|
           t=Title.find(id)
@@ -33,9 +34,13 @@ class FiguresController < ApplicationController
           #@figure.save
       end
     end 
-    if !@landmark[:name].empty?
-      l = Landmark.create(:name => @landmark[:name])
+    
+    #binding.pry
+    
+    if @landmark 
+      l = Landmark.create(:name => params[:landmark][:name])
       @figure.landmarks << l
+      @figure.save
     end
     if @landmark_ids
       @landmark_ids.each do |id|
@@ -44,7 +49,7 @@ class FiguresController < ApplicationController
       end
     end
     @figure.save
-    binding.pry
+    #binding.pry
     redirect "/figures/#{@figure.id}"
   end
 
