@@ -73,7 +73,9 @@ class FiguresController < ApplicationController
    @landmark= params[:landmark][:name]
    @landmark_ids = params[:figure][:landmark_ids]
    @figure = Figure.find(params[:id])
-   #old_landmark = Landmark.find(params[:figure][:landmark_ids])
+   old_landmark = Landmark.find(params[:figure][:landmark_ids]).first
+   old_landmark.name = @landmark
+   old_landmark.save
    #binding.pry
    #@figure.landmarks << Landmark.find_by(name: @landmark)
    @figure.name = params[:figure][:name]
