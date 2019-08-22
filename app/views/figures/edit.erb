@@ -4,6 +4,7 @@
   <input type="hidden" id="hidden" name="_method" value="PATCH">
 
     <label>Change Name</label>
+    <%= @figure.name %>
     <input type="text" name="figure[name]" id="figure_name">
 
     <label>Change Titles</label>
@@ -21,7 +22,7 @@
 
     <label>Create New Landmark:</label>
     <input type="text" name="new_landmark[name]" id="new_landmark">
-    <input type="text" name="new_landmark[year]" id="landmark year">
+    <input type="text" name="new_landmark[year]" id="year_completed">
 
     <input type="submit" id="submit" value="Edit Figure">
   </form>
