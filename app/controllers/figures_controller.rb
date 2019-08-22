@@ -21,22 +21,23 @@ class FiguresController < ApplicationController
     @title = params[:title][:name]
     @title_ids = params[:figure][:title_ids]
     @landmark_ids = params[:figure][:landmark_ids]
+    @landmark= params[:landmark][:name]
+    @title = params[:title][:name]
+    @title_ids = params[:figure][:title_ids]
+    @landmark_ids = params[:figure][:landmark_ids]
     #binding.pry
       if !@title.empty?
         t=Title.create(:name => @title)
         @figure.titles << t
       end
-        #binding.pry
       if @title_ids
-      
         @title_ids.each do |id|
           t=Title.find(id)
           @figure.titles << t
-          #@figure.save
+          @figure.save
       end
     end 
     
-    #binding.pry
     
     if @landmark 
       l = Landmark.create(:name => params[:landmark][:name])
@@ -50,7 +51,6 @@ class FiguresController < ApplicationController
       end
     end
     @figure.save
-    #binding.pry
     redirect "/figures/#{@figure.id}"
   end
 
