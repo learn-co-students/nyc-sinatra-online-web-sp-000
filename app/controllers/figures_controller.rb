@@ -73,11 +73,12 @@ class FiguresController < ApplicationController
    @landmark= params[:landmark][:name]
    @landmark_ids = params[:figure][:landmark_ids]
    @figure = Figure.find(params[:id])
+   #old_landmark = Landmark.find(params[:figure][:landmark_ids])
    #binding.pry
-   @figure.landmarks << Landmark.find(@landmark)
+   #@figure.landmarks << Landmark.find_by(name: @landmark)
    @figure.name = params[:figure][:name]
    @figure.save
-   
+   #binding.pry
    redirect  "/figures/#{@figure.id}"
   end
   
