@@ -59,6 +59,7 @@ class FiguresController < ApplicationController
     @landmarks = Landmark.all
     @titles = Title.all
     erb :'/figures/edit'
+    
   end
 
   get '/figures/:id' do 
@@ -67,13 +68,16 @@ class FiguresController < ApplicationController
   end
 
   patch '/figures/:id' do 
-   @title = params[:title]
-   @title_ids= params[:figure][:title_id]
-   @landmark= params[:landmark]
-   @landmark_ids = params[:figure][:landmark_id]
+   @title = params[:title][:name]
+   @title_ids= params[:figure][:title_ids]
+   @landmark= params[:landmark][:name]
+   @landmark_ids = params[:figure][:landmark_ids]
    @figure = Figure.find(params[:id])
+   #binding.pry
+   @figure.landmarks << Landmark.find(@landmark)
    @figure.name = params[:figure][:name]
    @figure.save
+   
    redirect  "/figures/#{@figure.id}"
   end
   
