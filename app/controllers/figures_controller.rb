@@ -13,10 +13,14 @@ class FiguresController < ApplicationController
   post '/figures' do
     #binding.pry
     @figure = Figure.create(params[:figure])
-    @figure.title = Title.find_or_create_by(:name => params[:figure][:title][:name])
-    @figure.landmark = Landmark.find_or_create_by(:name => params[:figure][:landmark][:name])
+    if params[:title][:name]
+      @figure.titles << Title.find_or_create_by(:name => params[:title][:name])
+    end
+    if params[:landmark][:name]
+      @figure.landmarks << Landmark.find_or_create_by(:name => params[:landmark][:name])
+    end
     @figure.save
-    redirect '/figures/#{@figure.id}'
+    redirect "/figures/#{@figure.id}"
   end
 
   get '/figures/:id/edit' do
