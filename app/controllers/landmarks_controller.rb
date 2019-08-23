@@ -16,7 +16,18 @@ class LandmarksController < ApplicationController
     redirect "landmark/#{@landmark.id}"
   end
   
-  
+  # get '/landmarks/:id/edit' do 
+  #   @figure = Figure.find(params[:id])
+  #   @landmarks = Landmark.all
+  #   @titles = Title.all
+  #   erb :'/figures/edit'
+    
+  # end
+
+  get '/landmarks/:id' do 
+    @landmark = Landmark.find(params[:id])
+    erb :'/landmarks/show'
+  end
   
   
 end
