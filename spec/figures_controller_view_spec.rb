@@ -43,6 +43,7 @@ describe FiguresController do
     check "landmark_#{Landmark.first.id}"
     click_button "Create New Figure"
     figure = Figure.last
+    #binding.pry
     expect(Figure.all.count).to eq(3)
     expect(figure.name).to eq("Doctor Who")
     expect(figure.landmarks).to include(Landmark.first)
@@ -124,6 +125,7 @@ describe FiguresController do
     expect(page.current_path).to eq("/figures/#{@original_figure.id}")
     expect(page.body).to include("Missy")
     expect(page.body).to include("Big Tower")
+    #binding.pry
 
     @updated_figure = Figure.first
     expect(@updated_figure.name).to eq("Missy")

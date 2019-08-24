@@ -5,7 +5,7 @@
 We're going to build a history site for New York City, so we're going to need to
 create the following database structure:
 
-- You will have three models (and their corresponding tables) `Landmark`, `Title`,
+- You wihttps://learn.co/tracks/full-stack-web-development-v7/sinatra/activerecord/sinatra-nyc?batch_id=781&track_id=50152#ll have three models (and their corresponding tables) `Landmark`, `Title`,
   `Figure` (think historical figure).
 
 - A landmark `belongs_to` a figure and a figure `has_many` landmarks.
