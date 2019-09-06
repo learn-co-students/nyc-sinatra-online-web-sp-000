@@ -3,5 +3,6 @@ class Figures < ActiveRecord::Migration
     create_table :figures do |t|
       t.string :name
       t.timestamps null: false
+    end
   end
 end

@@ -3,5 +3,6 @@ class Titles < ActiveRecord::Migration
     create_table :titles do |t|
       t.string :name
       t.timestamps null: false
+    end
   end
 end

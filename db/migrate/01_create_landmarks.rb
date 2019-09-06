@@ -5,4 +5,6 @@ class CreateLandmarks < ActiveRecord::Migration
       t.integer :year_completed
       t.integer :figure_id
       t.timestamps null: false
+    end
+  end
 end
