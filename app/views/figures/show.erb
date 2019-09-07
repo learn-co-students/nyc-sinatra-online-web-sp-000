@@ -1,0 +1,9 @@
+<h1>Welcome to the Figure feature section!</h1>
+<h2>Figure Name: <%=@figure.name%>
+<h2>Figure Landmarks: </h2>
+<%@figure.landmarks.each do |landmark| %>
+<ul>
+<h3><a href="/landmarks/<%=landmark.id%>"><%= landmark.name %></a></h3>
+</ul>
+<%end%>
+<br><br><a href ='/figures/<%=@figure.id%>/edit'>Edit This Figure</a>
