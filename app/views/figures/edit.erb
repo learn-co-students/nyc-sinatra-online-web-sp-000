@@ -1,0 +1,34 @@
+<h1>Edit Figure</h1>
+
+<form action="/figures/<%=@figure.id%>" method="post">
+<input id="hidden" type="hidden" name="_method" value="patch">
+    Figure Name: <br>
+    <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%>">
+
+    <br><br>
+
+    Choose a title: <br>
+    <%@titles.each do |t|%>
+    <input type="checkbox" name="figure[title_ids][]" id="title_<%=t.id%>" value="<%=t.id%>" <%='checked' if @figure.titles.include?(t) %>><%=t.name%>
+    <%end%>
+
+    <br><br>
+
+    or create a new one:
+    <input type="text" name="title[name]" id="new_title">
+
+    <br><br>
+
+    Choose a landmark: <br>
+    <%@landmarks.each do |l|%>
+    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=l.id%>" value="<%=l.id%>" <%='checked' if @figure.landmarks.include?(l) %>><%=l.name%>
+    <%end%>
+
+    <br><br>
+
+    or create a new one:
+    <input type="text" name="landmark[name]" id="new_landmark">
+
+    <br><br>
+
+    <input type="submit" value="Edit Figure">
