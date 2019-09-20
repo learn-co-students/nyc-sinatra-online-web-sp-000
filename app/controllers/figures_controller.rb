@@ -42,7 +42,7 @@ class FiguresController < ApplicationController
       if @landmark_ids
         @landmark_ids.each do |lm|
         l = Landmark.find(lm)
-        @figure.landmark << l
+        @figure.landmarks << l
         end
       end
 
