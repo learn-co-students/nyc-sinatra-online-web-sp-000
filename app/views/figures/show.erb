@@ -1,0 +1,14 @@
+
+
+<label>Titles:</label>
+<%=@figure.name%>
+
+<br><br>
+
+<label>Landmarks:</label>
+<%@figure.landmarks.each do |landmark|%>
+<%=landmark.name%>
+<%end%>
+<br><br>
+
+<a href="/figures/<%=@figure.id%>/edit"><input type="button" value="Edit"></a>
