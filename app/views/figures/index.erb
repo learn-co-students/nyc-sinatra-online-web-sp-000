@@ -1,0 +1,9 @@
+<h1>Historical Figures</h1>
+<br>
+<% @figures.each do |figure| %>
+  <h3><a href="/figures/<%=figure.id%>" target="_blank"><%=figure.name%></a></h3>
+  <%end%>
+<a href="/figures/new" target="_blank">Create a Figure</a>
+
+<a class="button" href="/landmarks">Landmarks</a>
+<a class="button" href="/">Home</a>
