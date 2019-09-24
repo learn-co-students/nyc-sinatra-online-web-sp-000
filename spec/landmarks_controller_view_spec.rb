@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe LandmarksController do
   before do
