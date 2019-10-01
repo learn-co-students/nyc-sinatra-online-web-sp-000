@@ -5,64 +5,45 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do 
-    @titles = Title.all
-    @landmarks = Landmark.all
     erb :'/figures/new'
   end
 
-  post '/figures' do 
-     @figure = figure.create(params[:figure])
+  post '/figures' do
+    # binding.pry
+     @figure = Figure.create(params[:figure])
 
+     unless params[:landmark][:name].empty?
+      @figure.landmarks << Landmark.create(params[:landmark])
+    end
+    unless params[:title][:name].empty?
+      @figure.titles << Title.create(params[:title])
+    end
+    @figure.save
       redirect "figures/#{@figure.id}"
   end
 
-  # get '/figures/:id' do 
-  #   @figure = Figure.find(params[:id])
-  #   erb :'/figures/show'
-  # end
+  get '/figures/:id' do 
+    @figure = Figure.find(params[:id])
+    erb :'/figures/show'
+  end
 
-  # get '/figures/:id/edit' do
-  #   @figure = Figure.find_by_id(params[:id])
-  #   @owners = Owner.all
-  #   erb :'/figures/edit'
-  # end
+  get '/figures/:id/edit' do
+    @figure = Figure.find_by_id(params[:id])
+    erb :'/figures/edit'
+  end
 
-  # patch '/figures/:id' do 
-  #   binding.pry
-  #     ####### bug fix
-  #     if !params[:figure].keys.include?("owner_id")
-  #      params[:figure]["owner_id"] = []
-  #      end
-  #      #######
-    
-  #      @figure = Figure.find(params[:id])
-  #      @figure.update(params["figure"])
-  #      if !params["owner"]["name"].empty?
-  #        @figure.owner << Owner.create(name: params["owner"]["name"])
-  #      end
-  #      redirect "figures/#{@figure.id}"
-  # end
-
-  #   patch '/figures/:id' do 
-  #     binding.pry
-  #     ####### bug fix
-  #     if !params[:figure].keys.include?("owner_id")
-  #      params[:figure]["owner_id"] = []
-  #      end
-  #      #######
-    
-  #      @figure = Figure.find(params[:id])
-  #     #  @figure.update(params["figure"]["name"])
-  #      @figure.name = params["figure"]["name"]
-  #      if !params["owner"]["name"].empty?
-  #       # @figure.owner.name = params["owner"]["name"]
-  #       @figure.owner = Owner.create(name: params["owner"]["name"])
-  #      else
-  #       @figure.owner = Owner.find_by_id(params["figure"]["owner_id"])
-  #       end
-  #     @figure.save
-  #      redirect "figures/#{@figure.id}"
-  # end
+    patch '/figures/:id' do 
+       @figure = Figure.find(params[:id])
+       @figure.update(params[:figure])
+       if !params["landmark"]["name"].empty?
+        @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+       end
+        if !params["title"]["name"].empty?
+          @figure.titles << Title.create(name: params["title"]["name"])
+        end
+      @figure.save
+       redirect "figures/#{@figure.id}"
+  end
 
 
 # end
