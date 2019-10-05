@@ -3,6 +3,6 @@ class ApplicationController < Sinatra::Base
   register Sinatra::Twitter::Bootstrap::Assets
 
   get '/' do
-    erb :"application/index"
+    erb :'application/index'
   end
 end
