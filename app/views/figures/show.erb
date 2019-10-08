@@ -1,0 +1,8 @@
+<h1> A Single Figure... </h1>
+<p> Name: <%= @figure.name %> </p> <br>
+<p> Landmarks: </p> 
+    <ul>
+        <% @figure.landmarks.each do |landmark| %>
+            <%= landmark.name %> 
+        <% end %>
+<a href='/figures/<% "#{@figure.id}" %>/edit'> Edit Figure </a>
