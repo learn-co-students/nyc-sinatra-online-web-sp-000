@@ -5,7 +5,7 @@
     <h3>Titles: </h3>
         <% @titles.each do |title| %>
             <% binding.pry %>
-            <label> <%= title.name %> </label> <input type='checkbox' id="title_<%= #{title.id} %>" name='figure[title_ids][]' value="title_#{title.id}"><br>
+            <label> <%= title.name %> </label> <input type='checkbox' id="title_<%= #{title.id} %>" name='figure[title_ids][]' value="title_<%= #{title.id} %>"><br>
         <% end %>
         <h3>Create new title: </h3>
             <input type='text' id='name' name='title[name]'><br>
