@@ -2,8 +2,9 @@
 
 <ul>
 <% @landmarks.each do |mark| %>
-<a class="button" href="landmarks/<%=mark.id%>"> View <%=mark.name%><br>
-<a class="button" href="landmarks/<%=mark.id%>/edit"> Edit <%mark.name%><br>
+<h2><%=mark.name%></h2>
+<a class="button" href="landmarks/<%=mark.id%>"> View <br>
+<a class="button" href="landmarks/<%=mark.id%>/edit"> Edit <br>
 <% end %>
 </ul>
 
