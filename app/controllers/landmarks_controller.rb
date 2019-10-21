@@ -5,13 +5,14 @@ class LandmarksController < ApplicationController
     erb :'landmarks/index'
   end
 
+
   get '/landmarks/new' do
-    erb :"landmarks/new"
+    erb :'landmarks/new'
   end
 
-  get 'landmark/:id' do
-    @landmark = Landmark.find_by(params[:id])
-    erb :show
+  get '/landmarks/:id' do
+    @landmark = Landmark.find(params[:id])
+    erb :'landmarks/show'
   end
 
   post '/landmarks' do
@@ -20,7 +21,7 @@ class LandmarksController < ApplicationController
     @landmark.figure.title = FigureTitle.find_or_create_by(title: params["figure title"])
     @landmark.save
 
-    redirect '/lanmarks/#{@landmark.id}'
+    redirect '/landmarks/#{@landmark.id}'
   end
 
 

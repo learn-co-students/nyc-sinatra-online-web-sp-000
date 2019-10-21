@@ -3,6 +3,7 @@
 <ul>
 <% @landmarks.each do |mark| %>
 <h2><%=mark.name%></h2>
+<h3>Completed in <%=mark.year_completed%></h3>
 <a class="button" href="landmarks/<%=mark.id%>"> View <br>
 <a class="button" href="landmarks/<%=mark.id%>/edit"> Edit <br>
 <% end %>
