@@ -1,9 +1,11 @@
 <form action="/landmarks" method="POST">
 <h2>Create New Landmark</h2>
 
-Name: <input type="text" name="landmark[name]">
-Year: <input type="integer" name="landmark[year_completed]"
+Name: <input type="text" name="landmark[name]" id="landmark_name">
+Year: <input type="integer" name="landmark[year_completed]" id="landmark_year_completed">
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
+
+<input type="submit" value="Create New Landmark">
 
 </form>
