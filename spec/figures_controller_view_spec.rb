@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'pry'
 describe FiguresController do
   before do
     queenb = Figure.create(:name => "Beyonce")
