@@ -1,0 +1,30 @@
+<h1>Show Page for <%= @figure.name %></h1>
+
+
+<h2><%= @figure.name %> Landmarks: </h2>
+
+<% @figure.landmarks.each do |landmark| %>
+<%= landmark.name %><br>
+<% end %>
+
+
+<h2><%= @figure.name %> Titles: </h2>
+<% @figure.titles.each do |title| %>
+
+  <%= title.name %><br>
+  <% end %>
+
+
+
+-----------------------------------------------------------------------------
+<br>
+<a href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<a href = "/figures">Figures Home</a>
+
+
+<br><br><br><br><br><br>
+
+<form method="post" action="/figures/<%= @figure.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+</form>

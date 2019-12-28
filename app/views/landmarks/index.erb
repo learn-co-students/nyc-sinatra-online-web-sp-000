@@ -1,16 +1,15 @@
 <h2>All Historical Landmarks</h2>
-<center>
-  _ _.-'`-._ _<br>
- ;.'________'.;<br>
-_________n.[____________].n_________<br>
-|""_""_""_""||==||==||==||""_""_""_""]<br>
-|"""""""""""||..||..||..||"""""""""""|<br>
-|LI LI LI LI||LI||LI||LI||LI LI LI LI|<br>
-|.. .. .. ..||..||..||..||.. .. .. ..|<br>
-|LI LI LI LI||LI||LI||LI||LI LI LI LI|<br>
-,,;;,;;;,;;;,;;;,;;;,;;;,;;;,;;,;;;,;;;,;;,,<br>
-;;jgs;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
-</center>
 
-<a class="button" href="/figures">Figures</a>
+
+<% Landmark.all.each do |landmark| %>
+  <a href="/landmarks/<%= landmark.id %>"><%= landmark.name %></a>
+  - Completed In <%= landmark.year_completed %> <br>
+<% end %>
+<br><br>
+<a href="/landmarks/new">Add a New Landmark</a>
+
+<br>
+
+
+<a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>

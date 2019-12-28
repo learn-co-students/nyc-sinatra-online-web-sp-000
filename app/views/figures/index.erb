@@ -1,3 +1,12 @@
 <h1>
-  Hi I am the Figure Landing Page
+ Figure Landing Page
 </h1>
+
+
+<% Figure.all.each do |figure| %>
+  <a href="/figures/<%= figure.id %>"><%= figure.name %></a> <br>
+<% end %>
+<br><br> 
+<a href="/figures/new">Add a New Figure</a>
+
+<br>
