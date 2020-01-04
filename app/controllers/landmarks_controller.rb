@@ -31,13 +31,11 @@ class LandmarksController < ApplicationController
   end
 
   patch '/landmarks/:id' do 
-  @landmark = Landmark.find_by(params[:id])
-  @landmark.update(params[:landmark])
-  unless params[:figure][:name].empty?
-    @landmark.figures << Figure.create(params[:figure])
-  end
+  @landmark = Landmark.find(params[:id])
+  @landmark.name = params[:landmark][:name]
+  @landmark.year_completed = params[:landmark][:year_completed]
   @landmark.save  
-  redirect("/figures/#{@landmark.id}")
+  redirect("/landmarks/#{@landmark.id}")
 end
   
 end
