@@ -1,11 +1,18 @@
 class FiguresController < ApplicationController
   
 get '/figures/new' do 
-    #view form to create new figure
+    erb :'figures/new'
 end
 
-post '/figures/new' do 
-    #post- create new figure with title, landmark, new title, new landmark title (checkboxes)
+post '/figures' do 
+  @figure = Figure.create(params[:figure])
+  unless params[:title][:name].empty?
+    @figure.titles << Title.create(params[:title])
+  end
+  unless params[:landmark][:name].empty?
+    @figure.landmarks << Landmark.create(params[:landmark])
+  end
+  @figure.save  
 end
   
 get '/figures' do
