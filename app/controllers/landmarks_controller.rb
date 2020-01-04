@@ -1,7 +1,6 @@
 class LandmarksController < ApplicationController
   get '/landmarks/new' do 
     erb :'landmarks/new'
-    #view form to create new landmark
   end
   
   post '/landmarks' do 
@@ -11,13 +10,11 @@ class LandmarksController < ApplicationController
     end
     @landmark.save
     redirect to "/landmarks/#{landmark.id}"
-    #post- create new landkarm
   end
   
   get '/landmarks' do
     @landmarks = Landmark.all
     erb :'/landmarks/index'
-    #list all landmarks (index)
   end 
 
   get '/landmarks/:id' do 

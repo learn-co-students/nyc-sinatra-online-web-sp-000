@@ -28,8 +28,6 @@ end
 get '/figures/:id/edit' do
   @figure = Figure.find_by(params[:id])
   erb :'figures/edit'  
-
-  #view form to edit a single figure
 end
 
 patch '/figures/:id' do 
@@ -44,7 +42,5 @@ patch '/figures/:id' do
   @figure.save  
   redirect("/figures/#{@figure.id}")
 end
-  #post- edit a single figure
-  #redirect to /figures? or /figures/:id?
 
 end
