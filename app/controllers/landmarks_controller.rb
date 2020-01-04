@@ -19,7 +19,7 @@ class LandmarksController < ApplicationController
     #view form to edit a landmark
   end
 
-  patch '/landmarks/:id/edit' do 
+  patch '/landmarks/:id' do 
     #patch- edit a single landmark
     #redirect to '/landmarks/:id'
   end
