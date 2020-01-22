@@ -11,7 +11,7 @@
 <% end %>
 
 <h2>Create New Title:</h2>
-<input type="text" id="title[name]" name="figure[new_title]">
+<input type="text" id="new_title" name="title[name]">
 
 <h2>Landmarks</h2>
 <% @landmarks.each do |landmark| %>
@@ -21,9 +21,9 @@
 
 <h2>Create New Landmark:</h2>
 <label for="landmark[name]">Name:</label>
-<input type="text" id="landmark[name]" name="figure[new_landmark_name]">
+<input type="text" id="new_landmark" name="landmark[name]">
 <label for="landmark[year]">Year:</label>
-<input type="text" id="landmark[year]" name="figure[new_landmark_year]">
+<input type="text" id="new_landmark_year" name="landmark[year_completed]">
 
 <button type="submit" id="Create New Figure">Create New Figure</button>
 </form>

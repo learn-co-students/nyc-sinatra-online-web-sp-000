@@ -13,22 +13,13 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    # binding.pry
-    @figure = Figure.new(params[:figure][:name])
+    binding.pry #check params to make sure existing titles and landmarks are already in the :figure hash so we only need to shovel in the new ones
+    @figure = Figure.new(params[:figure])
 
-    if !params[:figure][:title_ids].empty?
-      @figure_titles = []
-      params[:figure][:title_ids].each do |id|
-  
-        @figure_titles << Title.select {|title| title.id == id}
-      end
-  
-      @figure.titles = @figure_titles
+    if !params[:title][:name].empty?
+      @figure.titles << Title.create(params[:title])
     end
     
-
-
-    @figure.landmarks = params[:figure][:landmarks]
     @figure.save
 
     redirect("/figures/#{@figure.id}")
