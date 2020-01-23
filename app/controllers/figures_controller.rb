@@ -15,6 +15,7 @@ class FiguresController < ApplicationController
     end
     #binding.pry
     if !params[:title][:name].empty?
+      binding.pry
       new_title = params[:title][:name]
       @title = Title.create(name: new_title)
       @figure.title_ids << @title.id
