@@ -1,6 +1,33 @@
 <h2>Edit Historical Landmark</h2>
 
-<!-- add content here -->
+<form method="POST" action='/landmarks/<%= @landmark.id %>'>
+<input type="hidden" name="_method" value="PATCH">
+<h2 label for="name">Name:</label></h2>
+<input type="text" id="name" name="landmark[name]" value="<%= @landmark.name %>">
+<h2 label for="year_completed">Name:</label></h2>
+<input type="text" id="year_completed" name="landmark[year_completed]" value="<%= @landmark.year_completed %>">
+
+<h2>Titles</h2>
+
+<% Title.all.each do |title| %>
+    <label for="title_<%=title.id%>"><%= title.name %></label>
+    <input id="title_<%=title.id%>" type="checkbox" name="landmark[title_ids][]" value="<%= title.id %>"><br>
+<% end %>
+
+<h2>Create New Title:</h2>
+<input type="text" id="new_title" name="title[name]">
+
+<h2>Figures</h2>
+<% Figure.all.each do |figure| %>
+    <label for="figure_<%=figure.id%>"><%= figure.name %></label>
+    <input id="figure_<%= figure.id %>" type="checkbox" name="landmark[figure_ids][]" value="<%= figure.id %>"><br>
+<% end %>
+<h2>Create New Figure:</h2>
+<label for="figure[name]">Name:</label>
+<input type="text" id="new_figure" name="figure[name]">
+
+<button type="submit" id="Edit Landmark">Edit Landmark</button>
+</form>
 
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
