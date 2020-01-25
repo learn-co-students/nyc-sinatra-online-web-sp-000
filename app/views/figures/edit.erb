@@ -1,0 +1,34 @@
+figures edit page!
+
+<h1><%=@figure.name%></h1>
+
+<form action="/figures/<%=@figure.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="figure[name]">Name</label>
+  <input type="text" name="figure[name]" id="figure_name"><br>
+
+  <p>Titles</p>
+  <% Title.all.each do |title| %>
+    <%= title.name%><input id="title_<%= title.id %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>">
+  <% end %>
+
+  <p>Create New Title</p>
+  <label for="title[name]">Title Name</label>
+  <input type="text" name="title[name]" id="new_title"><br>
+
+
+  <p>Landmarks</p>
+  <% Landmark.all.each do |landmark| %>
+    <%= landmark.name%><input id="landmark_<%= landmark.id %>" type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>">
+  <% end %>
+
+  <p>Create New Landmark</p>
+  <label for="landmark[name]">Landmark Name</label>
+  <input type="text" name="landmark[name]" id="new_landmark"><br>
+
+  <label for="landmark[year]">Landmark Year</label>
+  <input type="text" name="landmark[year_completed]"><br>
+
+  <input type="submit" value="Edit Figure">
+</form>
