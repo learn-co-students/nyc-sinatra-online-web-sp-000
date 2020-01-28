@@ -4,13 +4,13 @@
         <td align="center"><a href="/figures/<%= @figure.id %>"> <%= @figure.name %> </a>
         <ul>
         Landmarks:
-            <% Figure.landmarks.each do |landmark| %>
+            <% @figure.landmarks.each do |landmark| %>
                 <li><%= landmark.name %></li>
             <% end %>
         </ul>
         <ul>
         Titles:
-            <% Figure.titles.each do |title| %>
+            <% @figure.titles.each do |title| %>
                 <li><%= title.name %></li>
             <% end %>
         </ul>
