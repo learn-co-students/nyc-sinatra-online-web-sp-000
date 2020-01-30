@@ -1,4 +1,3 @@
-require 'pry'
 class FiguresController < ApplicationController
   # add controller methods
   get '/figures' do
@@ -11,8 +10,7 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
-  get 'figures/:id' do
-    binding.pry
+  get '/figures/:id' do
     @figure = Figure.find(params[:id])
     erb :'figures/show'
   end
