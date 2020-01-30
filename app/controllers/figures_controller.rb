@@ -1,3 +1,4 @@
+require 'pry'
 class FiguresController < ApplicationController
   # add controller methods
   get '/figures' do
@@ -11,6 +12,7 @@ class FiguresController < ApplicationController
   end
 
   get 'figures/:id' do
+    binding.pry
     @figure = Figure.find(params[:id])
     erb :'figures/show'
   end
@@ -21,7 +23,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    @figure - Figure.create(params['figure'])
+    @figure = Figure.create(params['figure'])
     unless params[:landmark][:name].empty?
       @figure.landmarks << Landmark.create(params[:landmark])
     end
