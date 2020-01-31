@@ -34,7 +34,7 @@ class FiguresController < ApplicationController
     redirect "/figures/#{@figure.id}"
   end
 
-  patch 'figures/:id' do
+  patch '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
     @figure.update(params[:figure])
     unless params[:title][:name].empty?
