@@ -1,3 +1,4 @@
 class Landmark < ActiveRecord::Base
-  # add relationships here
+  # `belongs_to` will always need a singular table name: like figure, not figures
+  belongs_to :figure 
 end
