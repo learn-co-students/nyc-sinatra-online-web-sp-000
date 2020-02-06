@@ -9,8 +9,11 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    @figure = Figure.create(name :params[:figure][:name])
+    @figure = Figure.create(params[:figure]
     @figure.title.id = params[:figure][:title_ids][]
+
+    @figure.save
+    redirect to "/figures/#{@figure.id}"
   end
 
   get '/figures/:id' do
