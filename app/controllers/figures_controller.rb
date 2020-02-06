@@ -8,9 +8,16 @@ class FiguresController < ApplicationController
     erb :'/figures/new'
   end
 
+  post '/figures' do
+    @figure = Figure.create(name :params[:figure][:name])
+    @figure.title.id = params[:figure][:title_ids][]
+  end
+
   get '/figures/:id' do
     @figure = Figure.find(params[:id])
-  erb :'figures/show'
-end
+    erb :'figures/show'
+  end
+
+
 
 end
