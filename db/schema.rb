@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20200206032618) do
 
-  create_table "figre_titles", force: :cascade do |t|
+  create_table "figure_titles", force: :cascade do |t|
     t.integer "figure_id"
     t.integer "title_id"
   end
