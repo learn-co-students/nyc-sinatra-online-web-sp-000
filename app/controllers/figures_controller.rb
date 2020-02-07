@@ -9,11 +9,18 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    @figure = Figure.create(params[:figure]
-    @figure.title.id = params[:figure][:title_ids][]
+    figure = Figure.create(params[:figure]
+    figure.landmarks = params[:landmark]
+    if params[:landmark][:name]
+      figure.landmarks << Landmark.create(params[:landmark])
+    end
 
-    @figure.save
-    redirect to "/figures/#{@figure.id}"
+    figure.titles = params[:title]
+    if params[:titles][:name]
+      figure.titles << Titles.create(params[:title])
+    end
+    figure.save
+    redirect to "/figures/#{figure.id}"
   end
 
   get '/figures/:id' do
