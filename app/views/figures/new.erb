@@ -1,7 +1,7 @@
 <form action="/figures" method="POST">
   <lable>Name</label>
     <input type="text" id="figure_name" name="figure[name]"><br></br>
-    
+
   <label><h4>Titles</h4></label>
     <% @titles.each do |title| %>
       <label><%= title.name %></label>
@@ -10,7 +10,7 @@
     <% end %>
  <label><h4>Create New Title:</h4></label>
   <input type="text" id="new_title" name="title[name]">
-  
+
 
   <label><h4>Landmarks</h4></label>
     <% @landmarks.each do |landmark| %>
@@ -22,6 +22,6 @@
  <label>Name:</label>
   <input type="text" id="new_landmark" name="landmark[name]">
   <label>Year:</label>
-  <input type="text" name="landmark[year_completed]">
+  <input type="number" name="landmark[year_completed]">
   <input type="submit" value="Create New Figure">
 </form>
