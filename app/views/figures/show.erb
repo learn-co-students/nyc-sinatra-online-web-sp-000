@@ -2,3 +2,7 @@
 <% @figure.titles.each do |title| %>
 <h3><%= title.name %></h3>
 <%end%>
+
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit</a>
+<a class="button" href="/figures">Figures</a>
+<a class="button" href="/">Go Home</a>
