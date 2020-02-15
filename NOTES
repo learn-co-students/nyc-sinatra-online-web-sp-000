@@ -1,0 +1,4 @@
+params hash
+{"figure"=>{"name"=>"Doctor Who", "title_ids"=>["108"]},
+ "title"=>{"name"=>""},
+ "landmark"=>{"name"=>"", "year_completed"=>""}}
