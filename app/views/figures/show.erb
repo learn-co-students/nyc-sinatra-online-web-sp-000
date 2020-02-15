@@ -1,1 +1,17 @@
 <h2><%= @figure.name %></h2>
+
+<h3>Landmarks</h3>
+<% if @landmarks.size > 0 %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Year Completed</th>
+  </tr>
+  <% @landmarks.each do |lm| %>
+  <tr>
+    <td><%= lm.name %></td>
+    <td><%= lm.year_completed %></td>
+  </tr>
+  <% end %>
+</table>
+<% end %>

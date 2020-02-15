@@ -7,26 +7,26 @@
   <h3>Titles</h3>
   
   <% @titles.each do |title| %>
-    <input type="checkbox" name="figure[title_ids][]" value="<%= title.name %>" <%= 'checked' if @figure.titles.include?(title) %> ><%= title.name %>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" <%= 'checked' if @figure.titles.include?(title) %> ><%= title.name %>
     <br>
   <% end %>
   
   <h3>Create New Title:</h3>
-  <input type="text" name="title[name]">
+  <input type="text" id="new_title" name="title[name]">
 
   <h3>Landmarks</h3>
 
   <% @landmarks.each do |landmark| %>
-    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.name %>" <%= 'checked' if @figure.landmarks.include?(landmark) %> ><%= landmark.name %>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" <%= 'checked' if @figure.landmarks.include?(landmark) %> ><%= landmark.name %>
     <br>
   <% end %>
 
   <h3>Create New Landmark:</h3>
 
-  <label for="landmark_name">Name:</label>
-  <input type="text" name="landmark[name]" id="landmark_name">
+  <label for="new_landmark">Name:</label>
+  <input type="text" name="landmark[name]" id="new_landmark">
   <label for="landmark_year_completed">Year:</label>
   <input type="text" name="landmark[year_completed]" id="landmark_year_completed">
   <br>
-  <input type="submit" value="Update Figure">
+  <input type="submit" value="Edit Figure">
 </form>
