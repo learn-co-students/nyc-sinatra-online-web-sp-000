@@ -7,7 +7,7 @@ class FiguresController < ApplicationController
   post '/figures' do
     @figure = Figure.create(params[:figure])
 
-    if params[:figure][:title_ids]
+    if params[:figure].keys.include?(:title_ids)
       params[:figure][:title_ids].each {|title_id|
         @figure.titles << Title.find(title_id)
       }
@@ -17,7 +17,7 @@ class FiguresController < ApplicationController
       @figure.titles << Title.create(:name => params[:title][:name])
     end
 
-    if params[:figure][:landmark_ids]
+    if params[:figure].keys.include?(:landmark_ids)
       params[:figure][:landmark_ids].each {|landmark_id|
         @figure.landmarks << Landmark.find(landmark_id)
       }
