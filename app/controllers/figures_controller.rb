@@ -13,7 +13,6 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    # binding.pry
     @figure = Figure.create(params[:figure])
       if !params[:title][:name].empty?
         @figure.titles << Title.create(params[:title])
@@ -24,25 +23,23 @@ class FiguresController < ApplicationController
       end
     @figure.save
 
-    redirect to "/figures/#{@figure.slug}"
+    redirect to "/figures/#{@figure.id}"
   end
 
-  get '/figures/:slug' do
-    # binding.pry
-    @figure = Figure.find_by_slug(params[:slug])
+  get '/figures/:id' do
+    @figure = Figure.find_by_id(params[:id])
     
     erb :'figures/show'
   end
 
-  get '/figures/:slug/edit' do
-    @figure = Figure.find_by_slug(params[:slug])
+  get '/figures/:id/edit' do
+    @figure = Figure.find_by_id(params[:id])
 
     erb :'figures/edit'
   end
 
-  patch '/figures/:slug' do
-    binding.pry
-    @figure = Figure.find_by_slug(params[:slug])
+  patch '/figures/:id' do
+    @figure = Figure.find_by_id(params[:id])
     @figure.update(params[:figure])
       if !params[:title][:name].empty?
         @figure.titles << Title.create(params[:title])
@@ -54,7 +51,7 @@ class FiguresController < ApplicationController
     @figure.save
 
     
-    redirect to "/figures/#{@figure.slug}"
+    redirect to "/figures/#{@figure.id}"
   end
 
 end

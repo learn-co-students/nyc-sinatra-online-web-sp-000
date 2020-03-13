@@ -3,8 +3,8 @@
 <ul>
     <% Landmark.all.each do |landmark| %>
         <li>
-            <a href="/landmarks/<%= landmark.slug %>">
-                <%= landmark.name %></a>
+            <a href="/landmarks/<%= landmark.id %>">
+                <%= landmark.name %></a><%= landmark.year_completed %>
         </li>
     <%end%>
 </ul>

@@ -2,7 +2,7 @@
 <ul>
     <% @figures.each do |figure| %>
         <li>
-            <a href="/figures/<%= figure.slug %>">
+            <a href="/figures/<%= figure.id %>">
                 <%= figure.name %></a>
         </li>
     <%end%><br><br>

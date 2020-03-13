@@ -1,6 +1,6 @@
 <h2>Edit Historical Figure</h2>
 
-<form action='/figures/<%= @figure.slug %>' method="POST">
+<form action='/figures/<%= @figure.id %>' method="POST">
 <input id="hidden" type="hidden" name="_method" value="PATCH">
     <label for="figure_name">Name</label>
     <input type="text" id="figure_name" name="figure[name]" value="<%= @figure.name %>">
@@ -23,13 +23,13 @@
 
     <h2>Create New Landmark:</h2>
 
-    <label for="landmark_name">Name:</label>
-    <input id="landmark_name" type="text" name="landmark[name]">
+    <label for="new_landmark">Name:</label>
+    <input id="new_landmark" type="text" name="landmark[name]">
     <label for="landmark_date">Date:</label>
     <input id="landmark_date" type="text" name="landmark[year_completed]">
     <br><br>
 
-    <input type="submit" value="Update">
+    <input type="submit" value="Edit Figure">
 </form>
 
 <a class="button" href="/figures">Figures</a>
