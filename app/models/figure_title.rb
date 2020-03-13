@@ -1,3 +1,9 @@
+require_relative 'concerns/slugifiable.rb'
+
 class FigureTitle < ActiveRecord::Base
-  # add relationships here
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
+
+  belongs_to :figure
+  belongs_to :title
 end
