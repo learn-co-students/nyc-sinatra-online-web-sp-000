@@ -25,7 +25,7 @@ forms. %>
 
    <h4>Exisiting Figure Titles:</h4>
    <% @titles.each do |title| %>
-   <input id="<%= title.name %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %>
+   <input id="<%= title.name %>" type="checkbox" name="title_<%= "#{title.id}" %>" value="<%= title.id %>"><%= title.name %>
    <% end %>
 
 </form>
