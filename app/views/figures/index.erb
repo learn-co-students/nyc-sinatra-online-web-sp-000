@@ -1,1 +1,4 @@
-<h2>Figures Homepage</h2>
+<h1>Figures Homepage</h2>
+<% Figure.all.each do |figure| %>
+<%= figure.name %><br>
+<% end %>
