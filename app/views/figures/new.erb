@@ -1,0 +1,31 @@
+<%# Your forms will need to be complex. Your form for a new figure should
+dynamically generate checkboxes out of the available landmarks and titles. It
+should also have fields for creating a new landmark and/or a new title. The
+controller action that catches the POST request sent by submitting this form
+should account for this. The same is true of your form for editing a given
+figure. Read the tests very carefully to understand how you should set up your
+forms. %>
+
+<form action="/figures" method="POST"> 
+
+   <label for="figure_name">New Figure Name:</label>
+   <input id="figure_name" type="text" name="figure[name]">
+
+   <h3>Create New Landmark and/or Title:</h3>
+   <label for="landmark_name">New Figure Title</label>
+   <input id="landmark_name" type="text" name="landmark[name]">
+
+   <label for="title_name">New Figure Landmark</label>
+   <input id="title_name" type="text" name="title[name]">
+
+   <h4>Existing Figure Landmarks:</h4>
+   <% @landmarks.each do |landmark| %>
+   <input id="<%= landmark.name %>" type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%= landmark.name %>
+   <% end %>
+
+   <h4>Exisiting Figure Titles:</h4>
+   <% @titles.each do |title| %>
+   <input id="<%= title.name %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %>
+   <% end %>
+
+</form>
