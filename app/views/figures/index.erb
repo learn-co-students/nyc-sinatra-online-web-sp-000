@@ -1,4 +1,7 @@
 <h1>Figures Homepage</h2>
-<% Figure.all.each do |figure| %>
-<%= figure.name %><br>
+<ul>
+   <% Figure.all.each do |figure| %>
+   <li><a href="/figures/<%= "#{figure.id}"%>"><%= figure.name %></a></li>
+   <br>
+</ul>
 <% end %>
