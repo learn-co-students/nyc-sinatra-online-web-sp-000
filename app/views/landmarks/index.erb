@@ -2,7 +2,7 @@
 
 <ul>
 <% Landmark.all.each do |landmark| %>
-   <li><%= landmark.name %></li>
+   <li><a href="/landmarks/<%= "#{landmark.id}" %>"><%= landmark.name %></a></li>
    <li><%= landmark.year_completed %></li>
    <br>
 </ul>
