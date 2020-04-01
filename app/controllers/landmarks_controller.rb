@@ -43,6 +43,7 @@ class LandmarksController < ApplicationController
     # @landmark.year_completed = Landmark.find_or_create_by(year_completed: params["landmark"]["year_completed"])
     @landmark.update(params["landmark"])
     @landmark.save 
+    #binding.pry 
     #raise params.inspect
     redirect to :"/landmarks/#{@landmark.id}"
   end 

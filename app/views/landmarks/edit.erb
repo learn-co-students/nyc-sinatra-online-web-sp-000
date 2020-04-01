@@ -8,10 +8,10 @@
    <br>
    
    <label for="name">Update Landmark Name:</label>
-   <input id="name" type="text" name="landmark[name]">
+   <input id="name" type="text" name="landmark[name]" value="<%= @landmark.name %>">
    <br>
    <label for="year_completed">Update Year Completed:</label>
-   <input id="year_completed" type="text" name="landmark[year_completed]">
+   <input id="year_completed" type="text" name="landmark[year_completed]" value="<%= @landmark.year_completed %>">
    <br>
    <input type="submit" value="Edit Landmark">
 
