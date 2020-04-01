@@ -42,6 +42,7 @@ describe LandmarksController do
     get "/landmarks/#{@landmark.id}"
     expect(last_response.status).to eq(200)
     expect(last_response.body).to include("BQE")
+    #binding.pry 
     expect(last_response.body).to include("1961")
   end
 
