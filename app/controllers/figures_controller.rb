@@ -1,16 +1,15 @@
 class FiguresController < ApplicationController
 
   get '/figures' do
-  
-    
+
     erb :'/figures/index'
   end
   
   get '/figures/new' do 
     @figures = Figure.all 
     @landmarks = Landmark.all 
-    @titles = Title.all 
-
+    @titles = Title.all
+    
     erb :'/figures/new'
   end 
 
@@ -30,7 +29,6 @@ class FiguresController < ApplicationController
   end 
 
   get '/figures/:id/edit' do 
-    #inding.pry
     @figure = Figure.find_by_id(params[:id])
 
     erb :'/figures/edit'
@@ -43,9 +41,10 @@ class FiguresController < ApplicationController
   end 
 
   patch '/figures/:id' do
-    #binding.pry
+    
     @figure = Figure.find_by_id(params[:id])
-    @figure.update(params["figure"])
+    @figure.update(:name => params["figure"]["name"])
+    @figure.titles << Title.find_or_create_by(params["figure"]["title_ids"])
     @figure.save
 
     redirect to :"/figures/#{@figure.id}"
