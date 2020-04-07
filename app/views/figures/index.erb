@@ -1,0 +1,14 @@
+<h2>List of NYC Figures</h2>
+
+<% @figures.each do |figure| %>
+<a href="/figures/<%= figure.id %>"><%= figure.name %></a> <br>
+<ul>
+  <%figure.titles.each do |title| %>
+  <li><%=title.name %></li>
+  <% end %>
+</ul>
+<%end %>
+<br>
+
+<a href="/"><input type="button" value="Home"></a><br>
+<a href="/figures/new"><input type="button" value="Create New Figure"></a>
