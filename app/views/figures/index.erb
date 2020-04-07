@@ -1,9 +1,9 @@
-<h2>All Historical Landmarks</h2>
+<h2>All Historical Figures</h2>
 
-<% @landmarks.each do |landmark| %>
-  <div class="landmarks">
-    <h2>Landmark Name: <%= landmark.name %></h2>
-    <a href="/landmarks/<%= landmark.id %>"</a>
+<% @figures.each do |figure| %>
+  <div class="figures">
+    <h2>Figure Name: <%= figure.name %></h2>
+    <a href="/figures/<%= figure.id %>"</a>
   </div><br>
 <% end %>
 <!-- add content here -->
