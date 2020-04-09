@@ -52,7 +52,6 @@ class FiguresController < ApplicationController
 
     if !params["landmark"]["name"].empty?
       @figure.landmarks << Landmark.find_or_create_by(params["landmark"])
-      binding.pry
     end
 
     @figure.save
