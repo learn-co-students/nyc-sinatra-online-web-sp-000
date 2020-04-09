@@ -14,16 +14,14 @@ class FiguresController < ApplicationController
     @figure = Figure.create(params["figure"])
 
     if !params["title"]["name"].empty?
-      @figure.title = Title.find_or_create_by(params["title"])
+      @figure.titles << Title.find_or_create_by(params["title"])
     end
 
     if !params["landmark"]["name"].empty?
-      @figure.landmark << Landmark.find_or_create_by(params["landmark"])
+      @figure.landmarks << Landmark.find_or_create_by(params["landmark"])
     end
 
-    @landmark.year_completed = params["landmark"]["year_completed"]
-
-    @landmark.save
+    @figure.save
 
     redirect to "/figures/#{@figure.id}"
 
@@ -31,7 +29,7 @@ class FiguresController < ApplicationController
 
   get '/figures/:id' do
 
-    @figure = Figure.find(id: params[:id])
+    @figure = Figure.find_by(id: params[:id])
 
     erb :'/figures/show'
   end
@@ -39,8 +37,28 @@ class FiguresController < ApplicationController
 
   get '/figures/:id/edit' do
 
-    @figure = Figure.find(id: params[:id])
+    @figure = Figure.find_by(id: params[:id])
 
     erb :'/figures/edit'
   end
+
+  patch '/figures/:id' do
+    @figure = Figure.find_by_id(params[:id])
+    @figure.update(name: params["figure"]["name"])
+
+    if !params["title"]["name"].empty?
+      @figure.titles << Title.find_or_create_by(params["title"])
+    end
+
+    if !params["landmark"]["name"].empty?
+      @figure.landmarks << Landmark.find_or_create_by(params["landmark"])
+      binding.pry
+    end
+
+    @figure.save
+
+    redirect "/figures/#{@figure.id}"
+  end
+
+
 end
