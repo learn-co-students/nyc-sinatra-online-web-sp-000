@@ -17,5 +17,12 @@ class FiguresController < ApplicationController
     if !params[landmark][name].empty?
       @figure.landmarks << Landmark.find_or_create_by(params[:landmark])
     end
+    redirect to "/figures/#{@figure.id}"
   end
+
+  get '/figures/id' do
+    @figure = Figure.find(params[:id])
+    erb :"figures/show"
+  end
+
 end
