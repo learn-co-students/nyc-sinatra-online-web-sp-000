@@ -2,7 +2,7 @@ class LandmarksController < ApplicationController
   # add controller methods
   get '/landmarks' do
     @landmarks = Landmark.all
-    erb :'/landmark/index'
+    erb :'/landmarks/index'
   end
 
   get '/landmarks/new' do
@@ -19,7 +19,7 @@ class LandmarksController < ApplicationController
 
     @landmark.save
 
-    redirect to "/songs/#{@landmark.id}"
+    redirect to "/landmarks/#{@landmark.id}"
 
   end
 
@@ -27,7 +27,6 @@ class LandmarksController < ApplicationController
   get '/landmarks/:id' do
 
     @landmark = Landmark.find_by(id: params[:id])
-
     erb :'/landmarks/show'
   end
 
@@ -35,9 +34,21 @@ class LandmarksController < ApplicationController
   get '/landmarks/:id/edit' do
 
     @landmark = Landmark.find_by(id: params[:id])
-
     erb :'/landmarks/edit'
   end
 
+  patch '/landmarks/:id' do
+    @landmark = Landmark.find_by_id(params[:id])
+    @landmark.update(name: params["landmark"]["name"])
+    @landmark.update(year_completed: params["landmark"]["year_completed"])
+
+    if !params["figure"]["name"].empty?
+      @landmark.figure = Figure.find_or_create_by(params["figure"])
+    end
+
+    @landmark.save
+
+    redirect "/landmarks/#{@landmark.id}"
+  end
 
 end

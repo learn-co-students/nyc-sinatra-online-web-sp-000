@@ -3,8 +3,12 @@
 <!-- add content here -->
 <form action="/landmarks" method="post">
   <label for="name"> Name:</label>
-  <input type="text" id="Name" name="landmark[name]">
+  <input type="text" id="landmark_name" name="landmark[name]">
   <br></br>
+
+  <label for="name"> Year Completed:</label>
+  <input type="text" id="landmark_year_completed" name="landmark[year_completed]">
+  <br><br>
 
   Existing Figure:
   <%Figure.all.each do |figure|%>
@@ -16,7 +20,7 @@
   <br>Name: <input type="text" id="Figure Name" name="figure[name]">
   <br></br>
 
-  <input type="submit" value="Create">
+  <input type="submit" value="Create New Landmark">
 </form>
 
 
