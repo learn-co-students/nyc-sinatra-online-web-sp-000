@@ -12,11 +12,6 @@
   <br>
   <br>
 
-  <label for="name"> Year Completed:</label>
-  <input type="text" id="year_completed" name="landmark[year_completed]" value ="<=@landmark.year_completed %>">
-
-  <br><br>
-
   <p>Select an existing figure or create a new one below.</p>
   <%Figure.all.each do |figure|%>
     <br><input type="checkbox" id="<%=figure.id%>" name="landmark[figure]" value="<%=figure.id %>" <%='checked' if @figure == figure %>><%=figure.name%>
@@ -27,6 +22,11 @@
   <label>Title Name: </label>
   <input type="text" id="Figure Name" name="figure[name]">
   <br></br>
+
+  <label for="name"> Year Completed:</label>
+  <input type="text" id="year_completed" name="landmark[year_completed]" value ="<%=@landmark.year_completed.to_s %>">
+
+  <br><br>
 
   <input type="submit" value="Edit Landmark">
 
