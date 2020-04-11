@@ -1,0 +1,41 @@
+<form action="/figures" method="post">
+
+  <label for="name">Name</label>
+  <input type="text" name="figure[name]" id="figure_name">
+
+  <h2>Titles</h2>
+
+  <%@titles.each do |title|%>
+  <input type="checkbox" id="title_<%= title.id %>" name="figure[title_ids][]" value="<%= title.id %>"> <%= title.name %> </input>
+  <%end%>
+
+  <h3>Create a New Title</h3>
+<<<<<<< HEAD
+
+  <input type="text" name="title[name]" id="new_title">
+=======
+<<<<<<< HEAD
+  <input type="text" name="title[name]" value="title_name">
+=======
+  <input type="text" name="title[name]" value="new_title">
+>>>>>>> 1702a02936977ffde8f76302842a21807153763d
+>>>>>>> 363d5ec691999c334d1fe5d90cf8b4376d22f80d
+
+  <%@landmarks.each do |landmark|%>
+  <input type="checkbox" id="landmark_<%= landmark.id %>" name="figure[landmark_ids][]" value="<%= landmark.id %>"> <%= landmark.name %> </input>
+  <%end%>
+
+
+  <h3>Create a New Landmark</h3>
+<<<<<<< HEAD
+  <input type="text" name="landmark[name]" id="new_landmark">
+=======
+<<<<<<< HEAD
+  <input type="text" name="landmark[name]" value="landmark_name">
+=======
+  <input type="text" name="landmark[name]" value="new_landmark">
+>>>>>>> 1702a02936977ffde8f76302842a21807153763d
+>>>>>>> 363d5ec691999c334d1fe5d90cf8b4376d22f80d
+
+  <input type="submit" value="Create New Figure">
+</form>
