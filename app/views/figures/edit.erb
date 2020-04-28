@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit</title>
+        <style>
+            .card {
+                background-color: #138;
+                color: white;
+                width: 70%;
+                margin : 10px auto;
+                padding: 20px;
+                border-radius: 10px;
+                border: 2px solid #000;
+                box-shadow: -1px 1px 5px #444, -2px 2px 7px #333, -3px 3px 9px #222, -4px 4px 11px #111;
+                text-align: center;
+            }
+            input[type="submit"] {
+                background-color: white;
+                border-radius: 10px;
+                border: 1px solid black;
+                box-shadow: -1px 1px 1px #222, -2px 2px 2px #111;
+            }
+            input[type="submit"]:active {
+                box-shadow: inset -1px 1px #333,inset 1px -1px #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>Edit Form</h1>
+            <form action="/figures/<%=@figure.id%>" method="post">
+                <h2>Figure Name: <%=@figure.name%></h2>
+                <input type="hidden" name="_method" id="hidden" value="patch">
+                <label for="figure_name">Chang Figure Name:</label>
+                <input type="text" name="figure[name]" id="figure_name">
+                <br>
+                <br>
+                <h4>Change Existing Landmarks:</h4>
+                <%Landmark.all.each do |landmark|%>
+                    <label for="landmark_<%=landmark.id%>"><%=landmark.name%></label>
+                    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>" <%="checked" if @figure.landmarks.include?(landmark)%>>
+                <%end%>
+                <label for="new_landmark">Add Landmark:</label>
+                <input type="text" name="new_landmark">
+                <br>
+                <br>
+                <h4>Change Existing Titles:</h4>
+                <%Title.all.each do |title|%>
+                    <label for="title_<%=title.id%>"><%=title.name%></label>
+                    <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.id%>" <%="checked" if @figure.titles.include?(title)%>>
+                <%end%>
+                <label for="new_title">Add Title:</label>
+                <input type="text" name="new_title" id="">
+                <br>
+                <br>
+                <input type="submit" value="Edit Figure">
+            </form>
+        </div>
+    </body>
+</html>

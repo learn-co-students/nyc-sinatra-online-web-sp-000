@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Figure</title>
+    <style>
+        .card {
+            background-color: #138;
+            color: white;
+            width: 70%;
+            margin : 10px auto;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #000;
+            box-shadow: -1px 1px 5px #444, -2px 2px 7px #333, -3px 3px 9px #222, -4px 4px 11px #111;
+            text-align: center;
+        }
+        .card div {
+            width: 80%;
+            padding: 15px;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: -2px 2px 5px #000;
+            margin: 10px auto;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Create a new figure</h1>
+        <p>And associate title(s) and landmark(s)</p>
+        <form action="/figures" method="post">
+            <div class="figure-section">
+                <label for="figure_name">Name:</label>
+                <input type="text" id="figure_name" name="figure[name]" placeholder="Figure Name">
+            </div>
+            <div class="title-section">
+                <p>Select an existing Title:</p>
+                <%@titles.each do |title|%>
+                    <label for="title_<%=title.id%>"><%=title.name%></label>
+                    <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.id%>">
+                <%end%>
+                <p>Or create a new title to associate with the figure.</p>
+                <label for="new_title">New Title:</label>
+                <input type="text" name="title[name]" id="new_title">
+            </div>
+            <div class="landmark-section">
+                <p>Select an existing landmark:</p>
+                <%@landmarks.each do |landmark|%>
+                    <label for="landmark_<%=landmark.id%>"><%=landmark.name%></label>
+                    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>">
+                <%end%>
+                <p>Or create a new landmark to associate with the figure.</p>
+                <label for="new_landmark">New Landmark:</label>
+                <input type="text" id="new_landmark" name="landmark[name]">
+            </div>
+            <input type="submit" value="Create New Figure">
+        </form>
+    </div>
+    
+</body>
+</html>
