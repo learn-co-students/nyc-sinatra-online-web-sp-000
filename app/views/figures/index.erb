@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Figures</title>
+        <style>
+            a {
+                margin-bottom: 2%;
+                color: white;
+                text-decoration: none;
+            }
+
+            .card {
+                background-color: #138;
+                color: white;
+                width: 70%;
+                margin : 10px auto;
+                padding: 20px;
+                border-radius: 10px;
+                /* border: 2px solid #000; */
+                box-shadow: -1px 1px 5px #444, -2px 2px 7px #333, -3px 3px 9px #222, -4px 4px 11px #111;
+                text-align: center;
+            }
+
+            .figure {
+                background-color: #222;
+                width: 30%; 
+                display: inline-block;
+                padding: 20px;
+                margin: 5% auto;
+                border-radius: 5px;
+                box-shadow: -1px 1px 2px #111, -2px 2px 4px #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>List of Figures</h1>
+            <%@figures.each do |figure|%>
+                <a href="/figures/<%=figure.id%>">
+                    <div class="figure">
+                        <p><%=figure.name%></p>
+                    </div>
+                </a>
+            <%end%>
+        </div>
+    </body>
+</html>
