@@ -1,4 +1,4 @@
-ENV["SINATRA_ENV"] = "test"
+ENV['SINATRA_ENV'] = 'test'
 
 require_relative '../config/environment'
 require 'rack/test'
@@ -15,12 +15,10 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include Capybara::DSL
 
-
   config.order = 'default'
 end
 
-
-ActiveRecord::Base.logger.level = 1
+# ActiveRecord::Base.logger.level = 1
 
 def app
   Rack::Builder.parse_file('config.ru').first
