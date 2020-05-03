@@ -3,7 +3,7 @@ class FiguresController < ApplicationController
   # ---- GET ----
   get '/figures' do
     @figures = Figure.all
-    erb :'figures/index'
+    erb :'figures/all'
   end
 
   get '/figures/new' do
@@ -12,12 +12,12 @@ class FiguresController < ApplicationController
 
   get '/figures/:id' do
     figure_id
-    erb :'figures/show'
+    erb :'figures/show_one'
   end
 
   get '/figures/:id/edit' do
     figure_id
-    erb :'figures/edit'
+    erb :'figures/edit_one'
   end
 
   # ---- POST ----
