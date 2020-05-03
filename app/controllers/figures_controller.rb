@@ -32,7 +32,8 @@ class FiguresController < ApplicationController
   # ----- Patch ----
   patch '/figures/:id' do
     @figure = figure_id
-    @figure.update!({figure: params[:figure], year_completed:params['landmark']['year_completed']})
+    # binding.pry
+    @figure.update!({ name: params[:figure][:name]})
     add_title_and_landmark
     @figure.save
     redirect to "/figures/#{@figure.id}"
