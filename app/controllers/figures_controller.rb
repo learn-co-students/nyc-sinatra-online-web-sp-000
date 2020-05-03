@@ -11,12 +11,13 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/:id' do
-    figure_id
+    @figure = figure_id
+    # binding.pry
     erb :'figures/show_one'
   end
 
   get '/figures/:id/edit' do
-    figure_id
+    @figure = figure_id
     erb :'figures/edit_one'
   end
 
@@ -39,7 +40,7 @@ class FiguresController < ApplicationController
 
   helpers do
     def figure_id
-      @figures = Figure.find(params[:id])
+      Figure.find(params[:id])
     end
 
     def add_title_and_landmark
@@ -48,10 +49,3 @@ class FiguresController < ApplicationController
     end
   end
 end
-
-
-
-
-
-
-

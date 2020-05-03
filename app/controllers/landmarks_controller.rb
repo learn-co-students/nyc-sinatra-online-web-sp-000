@@ -31,11 +31,9 @@ class LandmarksController < ApplicationController
     redirect '/landmarks'
   end
 
-
   helpers do
     def landmark_id
       @landmark = Landmark.find(params[:id])
     end
   end
-
 end
