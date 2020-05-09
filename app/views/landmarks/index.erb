@@ -1,6 +1,30 @@
-<h2>All Historical Landmarks</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Landmarks</title>
+	<style>
+		a {
+			color: black;
+			text-decoration: none;
+		}
 
-<!-- add content here -->
+		.landmarks {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<h1>NYC Landmarks:</h1>
 
-<a class="button" href="/figures">Figures</a>
-<a class="button" href="/">Home</a>
+	<ul>
+		<% @landmarks.each do |landmark| %>
+			<li>
+				<a class="landmarks" href="/landmarks/<%= landmark.id %>"><%= landmark.name %></a>
+				(<%= landmark.year_completed %>)
+			</li>
+		<% end  %>
+	</ul>
+
+	<button type="button" name="button"><a href="/landmarks/new">New</a></button>
+</body>
+</html>

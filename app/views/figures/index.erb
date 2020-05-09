@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Figures</title>
+	<style>
+		a {
+			color: black;
+			text-decoration: none;
+		}
+
+		.figures {
+			color: blue;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>NYC Figures</h1>
+
+	<ul>
+		<% @figures.each do |figure| %>
+			<li>
+				<a class="figures" href="/figures/<%= figure.id %>"><%= figure.name %></a>
+			</li>
+		<% end %>
+	</ul>
+
+	<button type="button" name="button"><a href="/figures/new">New</a></button>
+
+</body>
+</html>
