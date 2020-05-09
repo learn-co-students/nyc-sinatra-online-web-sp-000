@@ -5,4 +5,10 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :"application/index"
   end
+
+  
+  
+ 
 end
+
+

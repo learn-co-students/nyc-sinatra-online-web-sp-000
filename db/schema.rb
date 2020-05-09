@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20200507204715) do
   create_table "landmarks", force: :cascade do |t|
     t.string  "name"
     t.integer "figure_id"
-    t.string  "year_completed"
+    t.integer "year_completed"
   end
 
-  create_table "title", force: :cascade do |t|
+  create_table "titles", force: :cascade do |t|
     t.string "name"
   end
 
