@@ -1,0 +1,10 @@
+<b> Figure Name: </b> <%= @figure.name %> <br>
+<% if (FigureTitle.find_by(figure_id: @figure.id) != nil) %> 
+    <% title = FigureTitle.find_by(figure_id: @figure.id) %>
+    Figure Title(s): <%= title.title.name %> <br>
+<% end %>
+<b> Figure Landmark(s): </b> <br> 
+<% @landmarks.each do |landmark| %>
+    Landmark Name: <%= landmark.name %> <br>
+    Landmark Year Completed: <%= landmark.year_completed %> <br> <br>
+<% end %>
