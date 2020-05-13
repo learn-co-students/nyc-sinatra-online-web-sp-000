@@ -12,39 +12,26 @@ class FiguresController < ApplicationController
   end
   
   post '/figures' do
-    @figure = Figure.create(name: params[:figure][:name])
-    # TITLES 
-    # if title_name
-    if !(params[:title][:name] == "")
-      @title = Title.create(name: params[:title][:name])
-      FigureTitle.create(figure_id: @figure.id, title_id: @title.id)
-    end 
-    # if no title_name
-    if !(params[:figure][:title_ids] == nil) # has to be == nil, not == "" because integer 
-      all_title_ids = params[:figure][:title_ids]
-      all_title_ids.each do |one_title_id|
-        FigureTitle.create(figure_id: @figure.id, title_id: one_title_id)
-      end 
-    end 
-
-    # LANDMARKS
-    # if landmark_ids
-    if !(params[:figure][:landmark_ids] == nil) # has to be == nil, not == "" because integer
-      all_landmark_ids = params[:figure][:landmark_ids]
+  @figure = Figure.create(params[:figure])
+  # TITLES 
+  if (params[:title][:name] != "")
+    @title = Title.create(params[:title])
+    @figure.titles << @title 
+  end 
+  
+  # LANDMARKS
+    all_landmark_ids = params[:figure][:landmark_ids]
+    if all_landmark_ids
       all_landmark_ids.each do |one_landmark_id|
-        correct_landmark = Landmark.find_by_id(one_landmark_id)
-        correct_landmark_name = correct_landmark.name
-        correct_landmark_year = correct_landmark.year_completed
-        binding.pry
-        @landmark = Landmark.create(name: correct_landmark_name, year_completed: correct_landmark_year)
-        @figures.landmarks << @landmark
+        landmark = Landmark.find_by_id(one_landmark_id)
+        @figure.landmarks << landmark
       end 
-      binding.pry
-    end
-    # if landmark_name
-    if !(params[:landmark][:name] == "")
-      @landmark = Landmark.create(name: params[:landmark][:name], year_completed: params[:landmark][:year], figure_id: @figure.id)
-    end
+    end 
+    # code below might not be functional
+    if params[:landmark][:name]
+      landmark = @figure.landmarks.build(params[:landmark])
+    end 
+    @figure.save
     redirect "/figures/#{@figure.id}"
   end
   
@@ -58,12 +45,20 @@ class FiguresController < ApplicationController
   get '/figures/:id/edit' do 
     @figure = Figure.find_by_id(params[:id])
     @titles = Title.all
+    @landmarks = Landmark.all
     erb :'/figures/edit' 
   end
 
   patch '/figures/:id' do 
-    @figure = Figure.find(params[:id])
-    @figure.update(name: params[:figure][:name])
+  @figure = Figure.find(params[:id])
+    if (!params[:figure][:name].empty?)
+      @figure.update(name: params[:figure][:name])
+    end 
+    if (!params[:figure][:landmark][:name].empty?)
+      landmark = Landmark.create(name: params[:figure][:landmark][:name], year_completed: params[:figure][:landmark][:year])
+      @figure.landmarks << landmark
+    end
+    @figure.save
     redirect "/figures/#{@figure.id}"
   end
 end

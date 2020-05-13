@@ -2,5 +2,17 @@
 
 <!-- add content here -->
 
+<b> Update a Figure </b> <br> <br> <br> <br>
+
+<form action="/landmarks/<%= @landmark.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <b>Edit Name: </b> <input type="text" id="name" name="landmark[name]" value="<%= @landmark.name %>"> <br> <br> <br>
+
+    <b>Edit Year Completed: </b> <input type="text" id="year_completed" name="landmark[year_completed]" value="<%= @landmark.year_completed %>"> <br> <br> <br>
+
+    <input type="submit" id="submit" value="Edit Landmark">
+</form>
+
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
