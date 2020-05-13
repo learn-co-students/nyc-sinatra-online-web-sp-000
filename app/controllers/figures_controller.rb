@@ -20,25 +20,25 @@ class FiguresController < ApplicationController
   # allows you to create a new figure with a landmark
   # allows you to create a new figure with a new title
   # allows you to create a new figure with a new landmark
-  # params = {"figure"=>{"name"=>"figure params", "title_ids"=>["1"]}, "title"=>{"name"=>""}, "landmark"=>{"name"=>"", "year"=>""}}
   post '/figures' do
-    # #<Figure:0x00007f8f92d3a0f8 id: 502, name: "Doctor Who">
     @figure = Figure.create(params[:figure])
-    binding.pry
-    # #<Title:0x00007f8f91d072d0 id: 295, name: "Time Lord">
-    @figure.titles = Title.create(name: params[:title][:name])
-
-    # @figure.titles = @titles
+    @figure.titles << Title.create(name: params[:title][:name])
+    @figure.landmarks << Landmark.create(name: params[:landmark][:name])
     @figure.save
-
-    # @figure.landmark = Landmark.find_or_create_by(name: params[:landmark][:name])
-
-
   end
 
   get '/figures/:id/edit' do
     @figure = Figure.find_by(params[:id])
     erb :'figures/edit'
+  end
+
+  patch '/figures/:id' do
+    # @figure = Figure.find_by(params[:name])
+    # binding.pry
+    # #<Figure:0x00007fb77645c740 id: 1271, name: "Missy">
+    @figure = Figure.create(name: params[:figure][:name])
+    @figure.name = params[:figure][:name]
+    @figure.save
   end
 
 end
