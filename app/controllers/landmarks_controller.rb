@@ -23,9 +23,11 @@ class LandmarksController < ApplicationController
     erb :'landmarks/edit'
   end
 
-  # patch '/figures/:id' do
-  #   @figure = Figure.create(name: params[:figure][:name])
-  #   @figure.name = params[:figure][:name]
-  #   @figure.save
-  # end
+  patch '/landmarks/:id' do
+    @landmark = Landmark.create(name: params[:landmark][:name])
+    # binding.pry
+    @landmark.name = params[:landmark][:name]
+    @landmark.year_completed = params[:landmark][:year_completed]
+    # @figure.save
+  end
 end
