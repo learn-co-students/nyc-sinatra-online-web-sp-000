@@ -24,10 +24,10 @@ class FiguresController < ApplicationController
   post '/figures' do
     # #<Figure:0x00007f8f92d3a0f8 id: 502, name: "Doctor Who">
     @figure = Figure.create(params[:figure])
-
+    binding.pry
     # #<Title:0x00007f8f91d072d0 id: 295, name: "Time Lord">
     @figure.titles = Title.create(name: params[:title][:name])
-    binding.pry
+
     # @figure.titles = @titles
     @figure.save
 
