@@ -1,0 +1,15 @@
+<h1>Facts of this figure:</h2>
+Name: <%=@figure.name%>
+<br>
+
+Titles: <br>
+<%@figure.titles.each do |t|%>
+<%=t.name%>
+<%end%>
+<br>
+Landmarks: <br>
+<%@figure.landmarks.each do |l|%>
+<%=l.name%>
+<%end%>
+
+You wanna update this Figure? Click here: <a href="/figures/<%=@figure.id%>/edit"><%=@figure.name%></a>
