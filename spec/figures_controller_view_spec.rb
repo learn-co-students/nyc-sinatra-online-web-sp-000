@@ -52,7 +52,9 @@ describe FiguresController do
     visit '/figures/new'
     fill_in :figure_name, :with => "Doctor Who"
     fill_in :new_title, :with => "Time Lord"
+    # binding.pry
     click_button "Create New Figure"
+    # binding.pry
     figure = Figure.last
     title = Title.last
     expect(Figure.all.count).to eq(3)
