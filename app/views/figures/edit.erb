@@ -1,0 +1,10 @@
+
+    <h1>Do Stuff</h1>
+    <form action="/figure" method="post">
+    <label>FIGURE NAME</label>
+    <input type="text" name="figure[name]" id="figure[name]">
+    <label>LANDMARKS</label>
+    <%Landmark.all.each do |landmark|%>
+    <input type="checkbox" name="landmark[]" id="<%=landmark.name%>" value="<%landmark.id%>" <%="checked" if @figure.landmarks.include?(landmark)%>><%=landmark.name%></input>
+    <%end%>
+    <input type="submit" name="Submit" value="submit">
