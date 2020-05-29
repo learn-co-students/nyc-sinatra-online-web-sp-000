@@ -1,7 +1,7 @@
 
-<h1>Do Stuff</h1>
+<h1>Do Stuff, Make THings.</h1>
 <form action="/figures" method="POST">
-    <label>FIGURE NAME</label>
+    <label>Figure Name</label>
         <input type="text" name="figure[name]" id="figure_name"><br><br>
     <label>Title</label>
         <%@titles.each do |title|%>
@@ -14,6 +14,11 @@
         <li><input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>"><%=landmark.name%></li>
         <%end%><br>
     <em>Create a New Landmark:</em>
-        <label>Landmark:</label><input type="text" name="landmark[name]" id="new_landmark"><br><br>
-    <input type="submit" value="Create New Figure">
+        <label>Landmark Name:</label><input type="text" name="landmark[name]" id="new_landmark"><br><br>
+        <label>Landmark Year Completed:</label><input type="text" name="landmark[year_completed]" id="landmark_year_completed"><br><br>
+<input type="submit" value="Create New Figure">
 </form>
+
+<a class="button" href="/figures">Figures</a>
+<a class="button" href="/landmarks">Landmarks</a>
+<a class="button" href="/">Home</a>
