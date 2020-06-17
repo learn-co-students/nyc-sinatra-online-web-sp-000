@@ -1,3 +1,3 @@
+require 'pry'
 class FiguresController < ApplicationController
-  # add controller methods
 end
