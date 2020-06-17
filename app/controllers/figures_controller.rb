@@ -1,11 +1,9 @@
 require 'pry'
 class FiguresController < ApplicationController
 
-
-    get '/figures/new' do 
-        @titles = Title.all
-        @landmarks = Landmark.all
-        erb :'figures/new'
+    get '/figures' do
+        @figures = Figure.all
+        erb :"/figures/index"
     end 
 
     post '/figures' do 
@@ -35,6 +33,25 @@ class FiguresController < ApplicationController
               @figure.landmarks << l
             end
         end
+        @figure.save
+        redirect to "/figures/#{@figure.id}"
+    end 
+
+    get '/figures/new' do 
+        @titles = Title.all
+        @landmarks = Landmark.all
+        erb :'figures/new'
+    end 
+
+    get '/figures/:id/edit' do
+        @figure = Figure.find(params[:id])
+        erb :edit
+    end 
+
+    patch '/figures/:id' do
+        @figure = Figure.find(params[:id])
+        @figure.landmark = params[:figure][:landmark]
+        @figure.title = params[:figure][:title]
         @figure.save
         redirect to "/figures/#{@figure.id}"
     end 
