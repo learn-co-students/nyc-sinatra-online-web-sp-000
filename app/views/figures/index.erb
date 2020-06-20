@@ -1,3 +1,5 @@
+<h2>All Historical Landmarks</h2>
+
 <% @figures.each do |f| %>
-<h2><%= f.name %></h2>
+    <li><a href="/figures/<%= f.id %>"><%= f.name %></a></li>
 <% end %>
