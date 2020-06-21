@@ -20,7 +20,6 @@ class LandmarksController < ApplicationController
     erb :"landmarks/edit"
   end
 
-  # edits landmark
   post '/landmarks/:id' do
     @landmark = Landmark.find(params[:id])
     @landmark.name = params['landmark']['name']
