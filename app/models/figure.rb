@@ -1,3 +1,10 @@
+require_relative "concerns/slugifiable"
+
 class Figure < ActiveRecord::Base
-  # add relationships here
+  include Slugifiable::InstanceMethods
+  extend Slugifiable::ClassMethods
+
+  has_many :landmarks
+  has_many :figure_titles
+  has_many :titles, through: :figure_titles
 end
