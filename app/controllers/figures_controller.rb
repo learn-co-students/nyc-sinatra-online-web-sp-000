@@ -1,44 +1,48 @@
 class FiguresController < ApplicationController
   # add controller methods
-  get '/figures' do 
+  get '/figures' do
     @figures = Figure.all
     erb :'figures/index'
   end
 
-  get '/figures/new' do 
-    erb :'/figures/new'
+  get '/figures/new' do
+    erb :'figures/new'
   end
 
-  post '/figures' do 
-    @title = params[:title]
-    @title_ids = params[:figure][:title_ids]
-    @landmark = params[:landmark]
-    @landmark_ids = params[:figure][:landmark_ids]
-    @figure = Figure.create(name: params[:figure][:name])
+  get '/figures/:id' do
+    @figure = Figure.find(params[:id])
+    erb :'figures/show'
+  end
 
-    if !@title[:name].empty?
-      t = Title.create(name: @title[:name])
-      @figure.titles << t
+  get '/figures/:id/edit' do
+    @figure = Figure.find(params[:id])
+    erb :'figures/edit'
+  end
+
+  post '/figures' do
+    @figure = Figure.create(params['figure'])
+    unless params[:landmark][:name].empty?
+      @figure.landmarks << Landmark.create(params[:landmark])
     end
-    if @title_ids
-      @title_ids.each do |id|
-        t = Title.find_by_id(id)
-        @figure.titles << t
-      end
-    end
-    if !@landmark[:name].empty?
-      l = Landmark.create(:name => @landmark[:name])
-      @figure.landmarks << l
-    end
-    if @landmark_ids
-      @landmark_ids.each do |id|
-        l = Landmark.find_by_id(id)
-        @figure.landmarks << l
-      end
+
+    unless params[:title][:name].empty?
+      @figure.titles << Title.create(params[:title])
     end
 
     @figure.save
     redirect to "/figures/#{@figure.id}"
   end
 
+  patch '/figures/:id' do
+    @figure = Figure.find_by_id(params[:id])
+    @figure.update(params[:figure])
+    unless params[:title][:name].empty?
+      @figure.titles << Title.create(params[:title])
+    end
+    unless params[:landmark][:name].empty?
+      @figure.landmarks << Landmark.create(params[:landmark])
+    end
+    @figure.save
+    redirect to "/figures/#{@figure.id}"
+  end
 end
