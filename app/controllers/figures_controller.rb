@@ -6,17 +6,7 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do
-    erb :'/figures/new'
-  end
-
-  get '/figures/:id' do
-    @figure = Figure.find(params[:id])
-    erb :'figures/show'
-  end
-
-  get '/figures/:id/edit' do
-    @figure = Figure.find(params[:id])
-    erb :'figures/edit'
+    erb :'figures/new'
   end
 
   post '/figures' do
@@ -32,6 +22,16 @@ class FiguresController < ApplicationController
 
     @figure.save
     redirect to "/figures/#{@figure.id}"
+  end
+
+  get '/figures/:id' do
+    @figure = Figure.find(params[:id])
+    erb :'figures/show'
+  end
+
+  get '/figures/:id/edit' do
+    @figure = Figure.find(params[:id])
+    erb :'figures/edit'
   end
 
   patch '/figures/:id' do
