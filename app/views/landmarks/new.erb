@@ -1,6 +1,14 @@
 <h2>Create New Landmark</h2>
 
 <!-- add content here -->
+<h1>Create a new figure</h1>
 
+<form action="/landmarks" method="Post">
+  <label for="landmark_name">Name of landmark</label>
+  <input type="text" name="landmark[name]" id="landmark_name"></input>
+  <label for="landmark_year_completed">Year Completed</label>
+  <input type="number" name="landmark[year_completed]" id="landmark_year_completed"></input>
+  <input type="submit" value="Create New Landmark">
+</form>
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
