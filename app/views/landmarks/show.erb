@@ -1,13 +1,10 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year Completed</th>
-  </tr>
-  <tr>
-    <td><%= @landmark.name %></td>
-    <td><%= @landmark.year_completed %></td>
-  </tr>
-<table>
 
-<a class="button" href="/landmarks/<%= @landmark.id %>/edit">Edit Landmark</a>
-<a class="button" href="/landmarks">Landmarks</a>
+    <label>Name</label>
+    <%= @landmark.name %>
+
+    <label>Year Completed</label>    
+    <%= @landmark.year_completed %>
+
+  <a class="button" href="/landmarks/<%= @landmark.id %>/edit">Edit</a>
+  <a class="button" href="/landmarks">Landmarks</a>
+  <a class="button" href="/">Go Home</a>
