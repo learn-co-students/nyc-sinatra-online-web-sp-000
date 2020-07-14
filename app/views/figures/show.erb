@@ -1,5 +1,15 @@
 <p>
     <%= @figure.name %>
-    
+    <ul>
+    <% @figure.landmarks.each do |landmark| %>
+        <li><%= landmark.name %></li>
+    <% end %>  
+    </ul>
+
+    <ul>
+    <% @figure.titles.each do |title| %>
+        <li><%= title.name %></li>
+    <% end %>  
+    </ul>
 </p>
 
