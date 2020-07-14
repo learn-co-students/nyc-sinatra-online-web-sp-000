@@ -28,13 +28,13 @@ class FiguresController < ApplicationController
         @new_figure.titles << Title.find(id)
       end
     end
+    binding.pry
     if params[:figure][:landmark_ids] != []
       params[:figure][:landmark_ids].each do |id|
         @new_figure.landmarks << Landmark.find(id)
       end
     end
     @new_figure.save
-    binding.pry
     redirect "/figures/#{@new_figure.id}"
   end
 
