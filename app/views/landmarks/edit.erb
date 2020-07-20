@@ -2,5 +2,19 @@
 
 <!-- add content here -->
 
+<form action = "/landmarks/<%= @landmark.id %>" method = "POST">
+<input type = "hidden" id = "hidden" name = "_method" value = "patch">
+<label>Name: </label>
+<input type = "text" id = "name" name = "landmark[name]" value = "<%= @landmark.name %>">
+<label>Year Completed: </label>
+<input type = "integer" id = "year_completed" name = "landmark[year_completed]" value = "<%= @landmark.year_completed %>">
+<br>
+
+<% @figures.each do |figure| %>
+    <input type = "radio" id = "<%= figure.name %>" name = "landmark[figure_id]" value = "<%= figure.id %>" <%= 'checked' if @landmark.figure_id == figure.id %>><%= figure.name %></input>
+<% end %>
+
+<input type = "submit" value = "Edit Landmark">
+</form>
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>

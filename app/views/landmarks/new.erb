@@ -2,5 +2,19 @@
 
 <!-- add content here -->
 
+<form action = "/landmarks" method = "POST">
+<label>Name: </label>
+<input type = "text" id = "landmark_name" name = "landmark[name]">
+<label>Year Completed: </label>
+<input type = "integer" id = "landmark_year_completed" name = "landmark[year_completed]">
+<br>
+
+<% @figures.each do |figure| %>
+    <input type = "radio" id = "<%= figure.name %>" name = "landmark[figure_id]" value = "<%= figure.id %>"><%= figure.name %></input>
+<% end %>
+
+<input type = "submit" value = "Create New Landmark">
+</form>
+
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
