@@ -2,5 +2,21 @@
 
 <!-- add content here -->
 
+<table>
+<tr>
+<th>Name</th>
+<th>Figure</th>
+<th>Year Completed</th>
+</tr>
+<% @landmarks.each do |landmark| %>
+<tr>
+<td><%= landmark.name %></td>
+<td><%=  %></td>
+<td><%= landmark.year_completed %></td>
+</tr>
+<% end %>
+
+</table>
+
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>

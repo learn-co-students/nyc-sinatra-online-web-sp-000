@@ -1,0 +1,21 @@
+<table>
+<tr>
+<th>Name</th>
+<th style = "height:auto;">Landmarks</th>
+<th>Titles</th>
+</tr>
+<% @figures.each do |figure| %>
+<tr>
+<td><%= figure.name %></td>
+
+<td><% figure.landmarks.first do |fl| %>
+    <%= fl.name %>
+    <% end %>
+    </td>
+<td><% figure.titles.first do |ft| %>
+    <%= ft.name %>
+    <% end %>
+    </td>
+</tr>
+    <% end %>
+    </table>
