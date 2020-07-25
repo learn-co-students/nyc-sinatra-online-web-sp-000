@@ -17,19 +17,20 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    figure = Figure.new(name: params[:figure[:name]])
-    landmarks = params[:figure[:landmark_ids]].map do |id|
+    binding.pry
+    figure = Figure.new(name: params[:figure][:name])
+    landmarks = params[:figure][:landmark_ids].map do |id|
       Landmark.find(id)
     end
-    titles = params[:figure[:title_ids]].map do |id|
+    titles = params[:figure][:title_ids].map do |id|
       Title.find(id)
     end
-    if !params[:landmark[:name]].empty?
-      new_landmark = Landmark.create(name: params[:landmark[:name]])
+    if !params[:landmark][:name].empty?
+      new_landmark = Landmark.create(name: params[:landmark][:name])
       landmarks << new_landmark
     end
-    if !params[:title[:name]].empty?
-      new_title = Title.create(name: params[:title[:name]])
+    if !params[:title][:name].empty?
+      new_title = Title.create(name: params[:title][:name])
       titles << new_title
     end
     figure.landmarks << landmarks
