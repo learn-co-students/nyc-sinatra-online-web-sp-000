@@ -1,11 +1,11 @@
-<form action="/figures/new" method="POST">
+<form action="/figures" method="POST">
 <label for="figure_name">Name</label>
 <input type="text" id="figure_name" name="figure[name]">
 </br>
 <h1>Titles</h1> </br></br>
 <%@title.each do |title|%>
 <label for="title_<%title.name%>"><%=title.name%></label>
-<input type="checkbox" id="title_<%title.id%>" name="figure[title_ids][]">
+<input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]">
 <%end%>
 </br>
 
