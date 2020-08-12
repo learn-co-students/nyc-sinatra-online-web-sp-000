@@ -1,0 +1,11 @@
+<form action="/figures/:id" method="POST">
+<label for= "figure_name">Figure Name</label>
+<input type ="text" id="figure_name" value="<%=@figure.name%>" name="figure[name]">
+<label for="new_landmark">New Landmark</label>
+<input type ="text" id="new_landmark" name="landmark[name]">
+<label for="title_ids">Title Ids</label>
+<input type ="text" id ="title_ids" value ="<%=@figure.title_ids%>"name ="figure[title_ids]">
+<input type ="text" id ="id" value="<%=@figure.id%>" name=figure[id]>
+<input type ="submit" value ="Edit Figure">
+</form>
+
