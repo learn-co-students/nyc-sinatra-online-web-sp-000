@@ -1,3 +1,3 @@
 class Figure < ActiveRecord::Base
-  # add relationships here
+  # figure has many landmarks
 end
