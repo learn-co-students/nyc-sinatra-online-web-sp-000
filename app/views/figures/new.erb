@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/figures/new" method="post">
+        <label for="figure[name]">Name:</label>
+        <input type="text" name="figure[name]" id="name">
+
+        <h3>Titles</h3>
+        <% Title.all.each do |title| %>
+            <label for="title[ids][]"><% title.name %></label>
+            <input type="checkbox" name="title[ids][]" id="" value="<% title.id %>">
+        <% end %>
+
+        <h3>Landmarks</h3>
+        <% Landmark.all.each do |landmark| %>
+            <label for="landmark[ids][]"><% landmark.name %></label>
+            <input type="checkbox" name="landmark[ids][]" id="" value="<% landmark.id %>">
+        <% end %>
+
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
