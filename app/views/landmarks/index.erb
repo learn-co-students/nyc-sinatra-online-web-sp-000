@@ -4,3 +4,9 @@
 
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
+
+<% @landmarks.each do |landmark| %>
+    <p>Name:<%= landmark.name %> </p>
+    <p> year_completed: <%= landmark.year_completed %> </p>
+<% end %>
+
