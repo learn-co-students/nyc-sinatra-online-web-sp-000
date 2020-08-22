@@ -8,21 +8,29 @@
 <body>
     <form action="/figures/new" method="post">
         <label for="figure[name]">Name:</label>
-        <input type="text" name="figure[name]" id="name">
+        <input type="text" name="figure[name]" id="figure_name">
 
         <h3>Titles</h3>
         <% Title.all.each do |title| %>
-            <label for="title[ids][]"><% title.name %></label>
-            <input type="checkbox" name="title[ids][]" id="" value="<% title.id %>">
+            <label for="figure[title_ids][]"><%= title.name %></label>
+            <input type="checkbox" name="figure[title_ids][]" id="title_<%= title.id %>" value="<%= title.id %>">
         <% end %>
 
         <h3>Landmarks</h3>
         <% Landmark.all.each do |landmark| %>
-            <label for="landmark[ids][]"><% landmark.name %></label>
-            <input type="checkbox" name="landmark[ids][]" id="" value="<% landmark.id %>">
+            <label for="figure[landmark_ids][]"><%= landmark.name %></label>
+            <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%= landmark.id %>" value="<%= landmark.id %>">
         <% end %>
 
-        <input type="submit" value="submit">
+        <h2>New Landmark?</h2>
+        <label for="landmark[name]">Name:</label>
+        <input type="text" name="landmark[name]" id="new_landmark">
+
+        <h2>New Title?</h2>
+        <label for="title[name]">Title:</label>
+        <input type="text" name="title[name]" id="new_title">
+
+        <input type="submit" value="Create New Figure">
     </form>
 </body>
 </html>
