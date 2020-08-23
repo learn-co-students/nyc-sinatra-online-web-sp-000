@@ -1,9 +1,10 @@
 <h2>All Historical Landmarks</h2>
 
 <!-- add content here -->
-<% Landmarks.all.each do |l|%>
-    <h3><%= l.name %></h3>
-    <span>completed: <%= l.year_completed %></span>
+<% Landmark.all.each do |landmark|%>
+    <h3><%= landmark.name %></h3>
+    <span>completed: <%= landmark.year_completed %></span>
+    <a href="/landmarks/<%= landmark.id %>">view <%= landmark.name %></a>
 <% end %>
 
 <a class="button" href="/figures">Figures</a>
