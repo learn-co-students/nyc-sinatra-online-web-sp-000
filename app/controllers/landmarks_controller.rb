@@ -9,7 +9,6 @@ class LandmarksController < ApplicationController
   # allows you to create a new landmark (FAILED - 2)
   post "/landmarks/new" do
     @landmark = Landmark.create(params[:landmark])
-    
     redirect "/landmarks/#{@landmark.id}"
   end
   
@@ -19,6 +18,7 @@ class LandmarksController < ApplicationController
     @landmark = Landmark.find_by_id(params[:id])
     erb :"/landmarks/show"
   end
+  
   # allows you to view the form to edit a single landmark (FAILED - 5)
   get "/landmarks/:id/edit" do
     @landmark = Landmark.find_by_id(params[:id])
@@ -26,9 +26,11 @@ class LandmarksController < ApplicationController
   end
   
   # allows you to edit a single landmark (FAILED - 6)
-  # post "/landmarks/:id/edit" do
-  #   @landmark = Landmark.find_by_id(params[:id])
-  # end
+  post "/landmarks/:id/edit" do
+    @landmark = Landmark.find_by_id(params[:id])
+    @landmark.update(params[:landmark])
+    redirect "/landmarks/#{params[:id]}"
+  end
   
   
   # # allows you to list all landmarks (FAILED - 3)
