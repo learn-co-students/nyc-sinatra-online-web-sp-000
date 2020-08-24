@@ -1,0 +1,20 @@
+<table>
+  <th>Figure Name</th>
+  <tr>
+    <% @figures.each do |figure| %>
+      <td align='center'><a href='/figures/<%= figure.id %>'><%= figure.name %></a>
+      <ul>
+        <% figure.titles.each do |title| %>
+        <li><%= title.name %></li>
+        <%end%>
+      </ul>
+      </td>
+  </tr>
+    <% end %>
+</table>
+
+<%# why aren't the titles showing %>
+
+<a class='button' href='figures/new'>Create New Figure</a><br>
+<a class='button' href='/landmarks'>View Landmarks</a><br>
+<a class='button' href='/'>Home</a>
