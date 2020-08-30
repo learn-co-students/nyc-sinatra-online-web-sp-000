@@ -12,14 +12,10 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    figure = Figure.new(name: params[:figure][:name])
+    figure = Figure.new(params[:figure])
     
-    figure.title_ids = params[:figure][:title_ids]
     figure.titles.build(params[:title]) if !Title.find_by(name: params[:title][:name])
-
-    figure.landmark_ids = params[:figure][:landmark_ids]
     figure.landmarks.build(params[:landmark]) if !Landmark.find_by(name: params[:landmark][:name])
-
     figure.save
 
     redirect "/figures/#{figure.id}"
@@ -39,12 +35,10 @@ class FiguresController < ApplicationController
   end
 
   patch '/figures/:id' do
-    figure = Figure.find(params[:id]).update(name: params[:figure][:name])
-    
-    figure.title_ids = params[:figure][:title_ids]
+   
+    figure = Figure.find(params[:id]).update(params[:figure])
+  
     figure.titles.build(params[:title]) if !Title.find_by(name: params[:title][:name])
-
-    figure.landmark_ids = params[:figure][:landmark_ids]
     figure.landmarks.build(params[:landmark]) if !Landmark.find_by(name: params[:landmark][:name])
 
     figure.save

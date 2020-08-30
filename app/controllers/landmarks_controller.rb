@@ -32,7 +32,7 @@ class LandmarksController < ApplicationController
 
     @landmark = Landmark.find(params[:id]).update(params[:landmark])
  
-    redirect :"/landmarks/#{@landmark.id}"
+    redirect :"/landmarks/#{params[:id]}"
   end
 
 end
