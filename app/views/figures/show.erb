@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td><%= @figure.name %></td>
+  </tr>
+  <%
+  # binding.pry
+  %>
+<table>
+  <% Title.all.each do |title| 
+        if @figure.titles.include?(title)
+    %>
+  <%= title.name %>
+  <%    end
+  end %>
+  <% Landmark.all.each do |landmark| 
+        if @figure.landmarks.include?(landmark)
+    %>
+  <%= landmark.name %>
+  <%    end
+  end %>
+
+
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit figure</a>
+<a class="button" href="/figures">Figures</a>
