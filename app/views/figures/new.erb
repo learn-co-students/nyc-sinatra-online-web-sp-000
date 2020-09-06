@@ -1,0 +1,23 @@
+<h2>Create New Figure</h2>
+
+<!-- add content here -->
+<form method="post" action="/figures/new">
+<input type="text" id="figure_name" name="figure[name]">
+<input type="text" id="figure_title" name="figure[title_ids][]">
+<input type="text" id="figure_landmark" name="figure[landmark_ids][]">
+<input type="text" name="landmark[name]" id="new_landmark">
+<input type="text" name="title[name]">
+<%@titles.each do |a| %>
+<!--<input type="checkbox" name="title[id]" id="title_<%=a.id%>" value="<%=a.id%>">-->
+<%=a.name%><input type="checkbox" id="title_<%=a.id%>" name="figure[title_ids][]" value="<%= a.id %>"><br>
+<%end %>
+<%Landmark.all.each do |a| %>
+<!--<input type="checkbox" name="title[id]" id="title_<%=a.id%>" value="<%=a.id%>">-->
+<%=a.name%><input type="checkbox" id="landmark_<%=a.id%>" name="figure[landmark_ids][]" value="<%= a.id %>"><br>
+<%end %>
+<input id="new_title" type="text" name="title[name]">
+<input type="submit" value="Create New Figure">
+</form>
+
+<a class="button" href="/figures">Figures</a>
+<a class="button" href="/">Home</a>
