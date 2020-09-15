@@ -4,12 +4,12 @@
 <form action="/landmarks/<%= @landmark.id %>" method='post'>
     <input id ="hidden" type="hidden" name="_method" value="patch">
     <label for "landmark[name]">Landmark Name: </label>
-    <input type="text" name="landmark[name]" id='landmark_name' value="<%= @landmark.name %>>
+    <input type="text" name="landmark[name]" id='name' value="<%= @landmark.name %>>
     <br/>
     <label for "landmark[year_completed]>Year Completed: </label>
-    <input type="text" name='landmark[year_completed]' id='landmark_year_completed' value="<%= @landmark.year_completed %>">
+    <input type="text" name='landmark[year_completed]' id='year_completed' value="<%= @landmark.year_completed %>">
     <br/>
-    <input type='submit' value='Update Landmark'>
+    <input type='submit' value='Edit Landmark'>
 </form>
 
 <a class="button" href="/landmarks">Landmarks</a>
