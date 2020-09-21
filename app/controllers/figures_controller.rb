@@ -29,25 +29,33 @@ class FiguresController < ApplicationController
 
   get '/figures/:id' do 
     @figure = Figure.find(params[:id])
+    @landmarks = @figure.landmarks
+    @titles = @figure.titles
     erb :"figures/show"
   end 
 
   patch '/figures/:id' do 
-    puts params 
     @figure = Figure.find(params[:id])
-    @figure.name = params[:figure][:name]
+    @figure.update(params[:figure])
+    # @figure.name = params[:figure][:name]
     # binding.pry
     # params[:song][:landmark_ids][] = @figure.landmark_ids.map{|l| l.to_s}
     if !params["landmark"]["name"].empty? 
+      # binding.pry
       landmark = Landmark.find_or_create_by(name: params[:landmark][:name])
-      landmark.figure_id = @figure.id
+      # landmark.figure_id = @figure.id
+      @figure.landmarks << landmark
       # params[:figure][:landmark_ids] = "#{landmark.id}"
-    else 
-      params[:figure][:landmark_ids] = @figure.landmark_ids
     end 
-    @figure.update(params[:figure])
+
+    if !params["title"]["name"].empty? 
+      title = Title.find_or_create_by(name: params[:title][:name])
+      # landmark.figure_id = @figure.id
+      @figure.titles << title
+      # params[:figure][:landmark_ids] = "#{landmark.id}"
+    end 
+    # binding.pry
     # @figure.name = params[:figure][:name]
-    # @figure.landmarks << landmark
     @figure.save
     redirect to "/figures/#{@figure.id}"
   end 
