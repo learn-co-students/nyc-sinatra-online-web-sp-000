@@ -1,3 +1,9 @@
 class LandmarksController < ApplicationController
-  # add controller methods
+
+  get '/new' do
+    erb :'/views/ApplicationController'
+  end
 end
+
+
+
