@@ -1,3 +1,7 @@
 class CreateLandmarks < ActiveRecord::Migration
-  raise 'Write CreateLandmarks migration here'
+  create_table :landmarks do |t|
+    t.string :name
+    t.integer :date
+    t.integer :figure_id
+  end
 end
