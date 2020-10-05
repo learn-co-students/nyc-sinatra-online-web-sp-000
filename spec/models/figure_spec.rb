@@ -12,7 +12,6 @@ describe "Figure" do
     
   end
 
-
   it "has a name" do 
     expect(@figure.name).to eq("Fiorello LaGuardia")
   end
