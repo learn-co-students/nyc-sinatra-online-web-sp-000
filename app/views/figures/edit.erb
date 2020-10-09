@@ -1,0 +1,39 @@
+
+<h1> Edit figure </h1>
+
+
+
+<form action="/figures/<%= @figure.id %>" method="POST">
+<input type="hidden" name="_method" value="patch">
+
+
+<label>Name:</label><input type="text" name="figure[name]" id="figure_name" value="<%= @figure.name %>"><br>
+CHECK
+<br>
+Titles:
+<br>
+<% Title.all.each do | title | %>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>"><%= title.name%><br>
+<% end %>
+<br>
+<label>Title Name:</label><input type="text" name="title[name]" id="new_title"><br>
+
+<br>
+<br>
+Landmarks:
+<br> 
+<% Landmark.all.each do | landmark | %>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>"><%= landmark.name%><br>
+<% end %>
+
+<br>
+
+AND OR CREATE NEW ONES 
+<br>
+<label>Landmark Name:</label><input type="text" name="landmark[name]" id="new_landmark"><br>
+<label>Landmark Year Completed:</label><input type="text" name="landmark[year_completed]" ><br>
+<!-- year completed has no id because the test doesnt fill it out and thus has no spec for the id name-->
+<br>
+
+<input type="submit" value="Edit Figure">
+</form>
