@@ -1,0 +1,35 @@
+<form action="/figures" method="POST">
+
+<label>Name:</label><input type="text" name="figure[name]" id="figure_name"><br>
+CHECK
+<br>
+Titles:
+<br>
+<% @titles.each do | title | %>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>"><%= title.name%><br>
+<% end %>
+<br>
+<label>Title Name:</label><input type="text" name="title[name]" id="new_title"><br>
+
+a landmark can only belong to one figure
+so what happen if somebody checks a landmark that already belong to another figure?!
+wouldnt that mess things up?
+<br>
+<br>
+Landmarks:
+<br> 
+<% @landmarks.each do | landmark | %>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>"><%= landmark.name%><br>
+<% end %>
+
+<br>
+
+AND OR CREATE NEW ONES 
+<br>
+<label>Landmark Name:</label><input type="text" name="landmark[name]" id="new_landmark"><br>
+<label>Landmark Year Completed:</label><input type="text" name="landmark[year_completed]" ><br>
+<!-- year completed has no id because the test doesnt fill it out and thus has no spec for the id name-->
+<br>
+
+<input type="submit" value="Create New Figure">
+</form>
