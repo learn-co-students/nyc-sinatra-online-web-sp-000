@@ -1,0 +1,13 @@
+<h1>NYC Figures</h1>
+
+    <ol>
+        <% @figures.each do |figure|%>
+        <li><a href="/figures/<%= figure.id%>"><%=figure.name%></a></li>
+        <% end %>
+    </ol>
+
+    
+    <a class="button" href="/landmarks">Landmarks</a>
+<br>
+<a class="button" href="/">Home</a>
+
