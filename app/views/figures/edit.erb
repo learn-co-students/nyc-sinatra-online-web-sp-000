@@ -1,0 +1,45 @@
+
+    <%# expect(last_response.status).to eq(200)
+    expect(last_response.body).to include('figure[name]')
+    expect(last_response.body).to include('figure[title_ids]')
+    expect(last_response.body).to include(@figure.name)
+  end %>
+
+<h1>Edits for:</h1>
+
+<form action="/figures/<%= @figure.id %>" method="POST">
+    <input type="hidden" name="_method" value="patch">
+
+<label>Name</label>
+    <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%>">
+
+    <h3>Titles</h3>
+        <% @titles.each do |title| %>
+            <input type="checkbox" name="figure[title_ids]" id="title_<%=title.id%>" value="<%title.id%>">
+            <label for="title_<%= title.id %>"><%= title.name %></label><br>
+        <% end %>
+        <br>
+
+    <h4>Create New Title</h4>
+        <label for="title">Title</label>
+        <input type="text" name="title[name]" id="new_title">
+        <br>
+        
+    <h3>Landmarks</h3>
+        <% @landmarks.each do |landmark| %>
+            <input type="checkbox" name="figure[landmark_ids]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>">
+            <label for="landmark_<%= landmark.id %>"><%=landmark.name %></label><br>
+            <% end %><br>
+
+
+    <h4>Create New Landmark</h4>
+    <label for="landmark">Name</label>
+    <input type="text" name="landmark[name]" id="new_landmark">
+
+    <label for="landmark">Year</label>
+    <input type="text" name="landmark[year]" id="new_landmark_year">
+
+    <input type="submit" value="Edit Figure">
+</form>
+
+
