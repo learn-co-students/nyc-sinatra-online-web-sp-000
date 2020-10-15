@@ -10,10 +10,17 @@ class FiguresController < ApplicationController
 
 
   post '/figures' do 
-    @figure = Figure.create(name: params[:figure][:name])
-    @figure.landmarks << Landmark.find_or_create_by(name: params[:name])
-    @figure.titles << Title.find_or_create_by(name: params[:name])
-    erb :'figures/show'
+    # binding.pry
+    @figure = Figure.create(params[:figure])
+   unless params[:landmark][:name].empty?
+      @figure.landmarks << Landmark.create(params[:landmark])
+   end
+    unless params[:title][:name].empty?
+    @figure.titles << Title.create(params[:title])
+    end 
+    @figure.save
+# binding.pry
+    redirect "/figures/#{@figure.id}"
   end
 
   ### read ###
@@ -31,17 +38,19 @@ class FiguresController < ApplicationController
 
   get '/figures/:id/edit' do
     @figure = Figure.find(params[:id])
+    @titles = Title.all
+    @landmarks = Landmark.all
     erb :'figures/edit'
   end
 
   patch '/figures/:id' do
-  @titles = Title.all
-  @landmarks = Landmark.all
+    @figure = Figure.find_by(params[:id])
+    @figure.update(params[:figure])
+    @figure.titles << Title.find_or_create_by(params[:title])
+    @figure.landmarks << Landmark.find_or_create_by(params[:landmark])
+    @figure.save
+    
     redirect "/figures/#{@figure.id}"
   end
-
-
-  ### delete ###
-
 
 end
