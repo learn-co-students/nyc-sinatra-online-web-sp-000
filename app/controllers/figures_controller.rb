@@ -5,7 +5,7 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end 
 
-  post '/figures/' do
+  post '/figures' do
     @figure = Figure.create(params[:figure])
       unless params[:landmark][:name].empty?
         @figure.landmarks << Landmark.create(params[:landmark])
