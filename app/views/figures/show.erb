@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td><%= @figure.name %></td>
+    <td>Landmarks</td>
+    <ul>
+    <% @figure.landmarks.each_with_index do |landmark, index| %>
+      <li><%= index + 1%>.<%= landmark.name %></li>
+    <% end %>
+    </ul>
+  </tr>
+<table>
+
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<a class="button" href="/figures">Figures</a>
