@@ -1,11 +1,13 @@
 class FiguresController < ApplicationController
   # add controller methods
   get '/figures' do
-    @figure = Figure.all 
+    @figures = Figure.all 
     erb :'figures/index'
   end
 
-  get '/figures/new' do  
+  get '/figures/new' do     
     erb :'figures/new'
   end
+
+
 end

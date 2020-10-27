@@ -12,18 +12,5 @@
   <label> Create New Title: </label>
   <label for="new_title">Create New Title:></label>
   <input id="new_title" type="text" name="new_title[name]"><br>
-  
-
-  <label> Land Marks </label>
-  <% Landmarks.all.each do |landmark| %>
-    <input id="<%= landmark.name %>" type="checkbox" name="landmark[]" value="<%= landmark.id %>">
-  <% end %>  
-
-  <label> Create New Landmark: </label>
-
-  <label for="landmark_name">Name</label><br>
-  <input id="landmark_name" type="text" name="landmark[name]" /><br>
-  <label for="landmark_year_completed">Year Completed</label><br>
-  <input id="landmark_year_completed" type="text" name="landmark[year_completed]" /><br>
 
 </form>
