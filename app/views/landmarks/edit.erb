@@ -2,5 +2,20 @@
 
 <!-- add content here -->
 
+<form action="/landmarks/<%=@landmark.id%>" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+<label for="name">Name:</label>
+<input type="text" name="landmark[name]" id="name" value=<%=@landmark.name%>><br><br>
+<label>Add Figures:</label><br>
+  <% Figure.all.each do |f| %>
+    <input type="checkbox" name="landmark[figure_id][]" id="figure_<%= f.id %>" value="<%= f.id %>" <%='checked' if @landmark.figure == f %>><%= f.name %><br>
+  <% end %>
+<label for ="figure[name]">Create New Figure:</label>
+<input type="text" name="figure[name]" id="new_figure"><br><br>
+<label for ="landmark[year_completed]">Year Completed</label>
+<input type="text" name="landmark[year_completed]" id="year_completed" value=<%=@landmark.year_completed.to_s%>><br>
+<br><button type="submit" id="edit_landmark">Edit Landmark</button>
+</form>
+
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
