@@ -6,7 +6,8 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do
-    @landmarks = Landmark.all     
+    @landmarks = Landmark.all 
+    @titles = Title.all    
     erb :'figures/new'
   end
 
@@ -36,6 +37,7 @@ class FiguresController < ApplicationController
 
   # allow the user to edit figure name, and which figure it associatees with 
   patch '/figures/:id' do
+    binding.pry
     @figure = Figure.find(params[:id])
     @figure.update(name: params["figure"]["name"]) 
     
