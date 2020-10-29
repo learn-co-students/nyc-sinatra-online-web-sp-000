@@ -11,16 +11,16 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
-  # if there is no assoication between landmark and figure then create one, if there is then find by id
   post '/figures' do
-    binding.pry
     @figure = Figure.create(params[:figure])
+   
     if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.create(name: params[:landmark])
+      @figure.landmarks << Landmark.create(params[:landmark])
+      
     end
 
     if !params[:title][:name].empty?
-      @figure.titles << Title.create(name: params[:title])
+      @figure.titles << Title.create(params[:title])
     end
 
     @figure.save
