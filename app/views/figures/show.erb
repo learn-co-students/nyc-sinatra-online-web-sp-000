@@ -1,17 +1,16 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Land Mark</th>
-  </tr>
-  <tr>
-    <td><%= @figure.name %></td>
-    <td><% @figure.landmarks.each do |landmark| %>
-        <% end %>
-    </td>
-    </tr>
-</table>
+<h2>Here is Your Historical Figure:</h2>
 
-<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
-<a class="button" href="/figures">Figures</a>
+<h3><%= @figure.name %></h3>
+
+<h3><%= @figure.name %>'s Landmark:</h3>
+<% @figure.landmarks.each do |landmark| %>
+  <%= landmark.name %>
+  <%= landmark.year_completed %>
+<% end %>
+
+<h3><%= @figure.name %>'s Titles:</h3>
+<% @figure.titles.each do |title| %>
+  <%= title.name %>
+<% end %>
 
   

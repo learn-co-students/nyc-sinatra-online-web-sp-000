@@ -1,37 +1,32 @@
 class FiguresController < ApplicationController
   # add controller methods
-  get '/figures' do
-    @figures = Figure.all 
-    erb :'figures/index'
-  end
-
   get '/figures/new' do
+    @titles = Title.all 
     @landmarks = Landmark.all 
-    @titles = Title.all    
+    @all_figures = Figure.all 
+
     erb :'figures/new'
   end
 
   post '/figures' do
-    @figure = Figure.create(params[:figure])
-   
-    if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.create(params[:landmark])
-      
+    
+    @figure = Figure.create(params[:figure]) 
+
+    title_params = params[:title][:name]
+    landmark_params = params[:landmark]
+
+    if !title_params.empty?
+      title = Title.create(params[:title])
+      @figure.titles << title
     end
 
-    if !params[:title][:name].empty?
-      @figure.titles << Title.create(params[:title])
+    if !landmark_params.empty?
+      landmark = Landmark.create(landmark_params)
+      @figure.landmarks << landmark
     end
 
     @figure.save
     redirect to "/figures/#{@figure.id}"
-  end
-
-  get '/figures/:id/edit' do
-    @figure = Figure.find(params[:id])
-    @landmark = Landmark.all
-    @title = Title.all
-    erb :'figures/edit'
   end
 
   get '/figures/:id' do
@@ -39,14 +34,29 @@ class FiguresController < ApplicationController
     erb :'figures/show'
   end
 
+  
+  get '/figures' do
+    @figures = Figure.all 
+
+    erb :'figures/all'
+  end
+
+  get '/figures/:id/edit' do
+    @figure = Figure.find_by(id: params[:id])
+ 
+    erb :'figures/edit'
+  end
+
   patch '/figures/:id' do
     @figure = Figure.find(params[:id])
     @figure.update(name: params["figure"]["name"]) 
-    
-    if !params["landmark"]["figure"]
-      @figure.landmarks = Landmark.create(name: params["landmark"]["figure"])
-    else
-      @figure.landmarks = Landmark.find_by_id(params[:figure][:landmark_id])
+
+    @figure.landmarks.each do |landmark|
+      if landmark.figure_id == params[:id].to_i
+        old_landmark = Landmark.find_by(figure_id: params[:id])
+        old_landmark.name = params[:landmark][:name]
+        old_landmark.save
+      end
     end
     @figure.save
 

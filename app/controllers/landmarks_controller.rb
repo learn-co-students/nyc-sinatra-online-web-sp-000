@@ -7,17 +7,21 @@ class LandmarksController < ApplicationController
 
   get '/landmarks/new' do
     @figures = Figure.all
+    @landmarks = Landmark.all
     erb :'landmarks/new'
   end
 
-  # if there is no association between figure and landmark then create on, if there one exist then find by id
+  # 'landmark[name]
+  # 'landmark[year_completed]
+
   post '/landmarks' do
     @landmark = Landmarks.create(params[:landmark])
-    if !params["figure"]["landmark"].empty?
-      @landmark.figure = Landmark.create(name: params["figure"]["name"])
-    else
-      @landmark.figure = Figure.find_by_id(params[:landmark][:figure_id])
+
+    if !params[:figure][:name].empty?
+      @landmark.figures << Figure.create(params[:name])
     end
+
+    
 
     @landmark.save
     redirect to "/landmarks/#{@landmark.id}"
