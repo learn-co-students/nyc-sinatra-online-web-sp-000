@@ -10,8 +10,8 @@
   <% end %>
 
   <label> Create New Title: </label>
-  <label for="new_title">Create New Title: </label>
-  <input id="new_title" type="text" name="new_title[name]"><br>
+  <label for="title">Create New Title: </label>
+  <input id="new_title" type="checkbox" name="title[name]"><br>
 
   <label> Landmarks </label>
   <% @landmarks.each do |landmark| %>
@@ -19,7 +19,7 @@
   <% end %>
 
   <label> Create New Landmark: </label>
-  <label for="new_title">Create New Landmark: </label>
-  <input id="new_landmark" type="text" name="new_landmark[name]"><br>
+  <label for="title">Create New Landmark: </label>
+  <input id="new_landmark" type="checkbox" name="landmark[name]"><br>
   <input type="submit" value="Create New Figure">
 </form>

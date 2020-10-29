@@ -5,13 +5,23 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Edit the Figure: </label>
   <br>
+
   <label>Name: <label>
-  <input type="text" name="figure[:name]" id="figure_name" value="<%= @figure.name %>">
+  <input type="checkbox" name="figure[:name]" id="figure_name" value="<%= @figure.name %>">
   <input type="submit" value="Submit">
   <br>
-  <label>Land Mark: </label>
-  <input type="text" name="landmark[:name" id="landmark_name" value="<%= @landmark.name %>">
-  <input type="submit" value="Submit">
 
-<a class="button" href="/figures">Figures</a>
-<a class="button" href="/">Home</a>
+  <label>Land Mark: </label>
+  <input type="checkbox" name="landmark[:name]" id="landmark_name" value="<%= @landmark.name %>">
+  <input type="submit" value="Submit">
+  <br>
+  
+  <label> Create New Title: </label>
+  <input type="checkbox" name="title[:name]" id="new_title" value="<%= @title.name %>">
+  <input type="submit" value="Submit">
+  <br>
+
+  <a class="button" href="/figures">Figures</a>
+  <br>
+  
+  <a class="button" href="/">Home</a>
