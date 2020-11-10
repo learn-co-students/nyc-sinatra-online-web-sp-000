@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @figure.name %></title>
+  </head>
+  <body>
+    <h1><%= @figure.name %></h1>
+    <% @figure.titles.each do |title|%>
+    <p><%= title.name %><br>
+    <% end %> </p>
+    <% @figure.landmarks.each do |landmark|%>
+    <p><%= landmark.name %><br>
+    <% end %> </p>
+    
+    <a href="/figures/edit"><input type="button" value="Edit Figure"></a>
+  </body>
+</html>
