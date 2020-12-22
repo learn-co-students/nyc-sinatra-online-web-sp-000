@@ -1,0 +1,44 @@
+
+**Figures**
+
+| **id** |      **name**      |
+| :----: | :----------------: |
+|   1    |    Robert Moses    |
+|   2    |      Al Smith      |
+|   3    | Theodore Roosevelt |
+|   4    |  Peter Stuyvesant  |
+|   5    |     Boss Tweed     |
+|   6    | Michael Bloomberg  |
+|   7    |      Ed Koch       |
+|   8    | Fiorello LaGuardia |
+|   9    |    Jimmy Walker    |
+|   10   |  Belle Moskowitz   |
+
+**Landmarks**
+
+| **id** |        **name**         | **figure_id** | **year_completed** |
+| :----: | :---------------------: | :------------ | ------------------ |
+|   1    |           BQE           | 1             | 1947               |
+|   2    |     Holland Tunnel      | 5             | 1927               |
+|   3    |    Wall Street Wall     | 4             | 1684               |
+|   4    | Brooklyn Battery Tunnel | 10            | 1973               |
+
+**Titles**
+
+| **id** |        **name**        |
+| :----: | :--------------------: |
+|   1    |         Mayor          |
+|   2    |       President        |
+|   3    |        Governor        |
+|   4    | NYC Parks commissioner |
+
+
+**Figure_titles**
+
+| **id** | **title_id** | **figure_id** |
+| :----: | :----------: | :-----------: |
+|   1    |      3       |       2       |
+|   2    |      3       |       3       |
+|   3    |      2       |       3       |
+|   4    |      1       |       9       |
+|   5    |      4       |       1       |
