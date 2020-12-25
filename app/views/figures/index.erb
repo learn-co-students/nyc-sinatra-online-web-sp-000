@@ -1,1 +1,3 @@
-Index
+<% @figures.each do |figure| %>
+<p><a href=<%= "/figures/#{figure.id}" %>><%= figure.name %></a></p>
+<% end %>
