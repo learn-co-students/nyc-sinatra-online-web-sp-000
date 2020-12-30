@@ -10,7 +10,7 @@
 
   <label><h4>Landmarks</h4></label>
   <% Landmark.all.each do |landmark| %>
-      <input type="checkbox" name="figure[landmarks_id][]" id="<%= landmark.id %>" value="<%= landmark.name %>" <%='checked' if @figure.landmarks.include?(landmark) %>>
+      <input type="checkbox" name="figure[landmark_ids][]" id="<%= landmark.id %>" value="<%= landmark.id %>" <%='checked' if @figure.landmarks.include?(landmark) %>>
       <label for="<%= landmark.id %>"> <%= landmark.name %> </label><br>
     <% end %>
   <br>
