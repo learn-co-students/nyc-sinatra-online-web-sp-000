@@ -5,12 +5,12 @@
 
 <h2>Landmarks: </h2><br>
     <%@figure.landmarks.each do |landmark|%>
-    <li><%= landmark.name %></li>
+        <li><%= landmark.name %></li>
     <% end %>
 
 <h2>Titles: </h2>
     <% @figure.titles.each do |title|%>
-    <li><%= title.name %></li>
+        <li><%= title.name %></li>
     <% end %>
 <br><br>
 <a class="button" href="/figures/<%= @figure.id %>/edit">Edit</a>
