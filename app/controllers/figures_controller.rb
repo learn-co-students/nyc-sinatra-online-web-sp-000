@@ -5,23 +5,23 @@ class FiguresController < ApplicationController
     erb :'/figures/index'
   end
 
-  get '/figures/:id' do
-    @figure = Figure.find_by_id(params[:id])
-    @titles = FigureTitle.find_by(figure_id: @figure.id)
-    @landmarks = @figure.landmarks
-    erb :'figures/show'
-  end
-
   get '/figures/new' do
     @landmarks = Landmark.all
     @titles = Title.all
     erb :'/figures/new'
   end
 
-  get '/figures/:id/edit' do
+  get '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
-    @titles = FigureTitle.find_by(figure_id: @figure.id)
-    @landmarks = Landmarks.all
+    # @titles = FigureTitle.find_by(figure_id: @figure.id)
+    # @landmarks = @figure.landmarks
+    erb :'figures/show'
+  end
+
+  get '/figures/:id/edit' do
+    @figure = Figure.find(params[:id])
+    # @titles = FigureTitle.find_by(figure_id: @figure.id)
+    # @landmarks = Landmarks.all
     erb :'figures/edit'
   end
 
