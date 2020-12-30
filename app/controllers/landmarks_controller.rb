@@ -22,7 +22,6 @@ class LandmarksController < ApplicationController
   post '/landmarks' do
     @landmark = Landmark.create(params[:landmark])
 
-    #flash[:message] = "Successfully created landmark."
     redirect to "/landmarks/#{@landmark.id}"
   end
 
@@ -32,7 +31,6 @@ class LandmarksController < ApplicationController
     @landmark.year_completed = params["landmark"]["year_completed"]
     @landmark.save
 
-    #flash[:message] = "Successfully updated landmark."
     redirect to "/landmarks/#{@landmark.id}"
   end
 

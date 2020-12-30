@@ -7,5 +7,3 @@ class CreateLandmarks < ActiveRecord::Migration
     end
   end
 end
-
-#may have to create new landmark file
