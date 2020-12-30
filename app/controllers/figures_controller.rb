@@ -15,13 +15,13 @@ class FiguresController < ApplicationController
     @figure = Figure.find_by_id(params[:id])
     # @titles = FigureTitle.find_by(figure_id: @figure.id)
     # @landmarks = @figure.landmarks
-    erb :'figures/show'
+    erb :'/figures/show'
   end
 
   get '/figures/:id/edit' do
-    @figure = Figure.find(params[:id])
-    # @titles = FigureTitle.find_by(figure_id: @figure.id)
-    # @landmarks = Landmarks.all
+    @figure = Figure.find_by_id(params[:id])
+    @titles = FigureTitle.find_by(figure_id: @figure.id)
+    @landmarks = Landmark.all
     erb :'figures/edit'
   end
 
