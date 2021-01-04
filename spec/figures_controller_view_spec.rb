@@ -68,6 +68,7 @@ describe FiguresController do
     click_button "Create New Figure"
     figure = Figure.last
     landmark = Landmark.last
+
     expect(Figure.all.count).to eq(3)
     expect(Landmark.all.count).to eq(2)
     expect(figure.name).to eq("Doctor Who")
