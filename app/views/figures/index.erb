@@ -1,0 +1,8 @@
+<h1>Welcome to the Figures Menu</h1>
+<% Figure.all.each do | sel | %>
+    <h3>
+        <a href= "figures/<%= sel.id %>">
+            <%= sel.name %>
+        </a>
+    </h3>
+<% end %>
