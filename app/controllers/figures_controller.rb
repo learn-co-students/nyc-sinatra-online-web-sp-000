@@ -13,8 +13,9 @@ class FiguresController < ApplicationController
   end 
 
   post '/figures' do
-    
-    @figure = Figure.create(name: params[:figure][:name])
+    #raise params.inspect
+    @figure = Figure.create(params[:figure])
+      #name: params[:figure][:name])
     #binding.pry
 
     #if there's a new title, add the new title
@@ -32,27 +33,34 @@ class FiguresController < ApplicationController
       @landmark.save
     end 
 
+    #Leaving this in here AS A REMINDER.
+    #THE VALUE FIELD AND THE ID FIELD DO NOT ALWAYS HAVE TO BE THE SAME
+    #IF THE ID FIELD IS WEIRD BECAUSE CAPYBARA NEEDS IT TO BE WEIRD, THE ID FIELD CAN BE WEIRD.
+    #THE VALUE FIELD DOESN'T HAVE TO BE WEIRD TOO. LET THE VALUE FIELD BE THE ID SO SINATRA CAN LOOK IT UP, DAMMIT.
+    
     #Return the title ids thing to a damn integer, find the title, and add it to the figure's titles.
-    @title_ids = params[:figure][:title_ids]
-    @title_ids.each do |id|
-      n = id.gsub("title_", "").to_i
-      @figure.titles << Title.find(n)
-    end
+    #if !params[:figure][:title_ids].empty?
+    #@title_ids = params[:figure][:title_ids]
+    #@title_ids.each do |id|
+    #  n = id.gsub("title_", "").to_i
+    #  @figure.titles << Title.find(n)
+    #end
+    #end 
 
     #Return the landmark ids to a damn integer, find the landmark, and set the landmark's figure to the current figure object
-    @landmark_ids = params[:figure][:landmark_ids]
+    #@landmark_ids = params[:figure][:landmark_ids]
     #Assign the array of landmark IDs to a variable
-    @landmark_ids.each do |id|
+    #@landmark_ids.each do |id|
         #To each item in the array...
-        n = id.gsub("landmark_", "").to_i
+        #n = id.gsub("landmark_", "").to_i
         #Strip all the decoratext and turn it back to an integer
-        @landmark = Landmark.find(n)
+        #@landmark = Landmark.find(n)
         #Find the landmark by that integer
-        @landmark.figure = @figure
+        #@landmark.figure = @figure
         #Assign the landmark to the figure object currently in question
-        @landmark.save 
+        #@landmark.save 
         #Save it?
-    end
+    #end
 
     redirect to "/figures/#{@figure.id}" 
   end 
