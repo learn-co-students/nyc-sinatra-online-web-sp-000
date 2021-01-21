@@ -13,11 +13,13 @@ class FiguresController < ApplicationController
   end 
 
   post '/figures' do
-    #binding.pry
+    
     @figure = Figure.create(name: params[:figure][:name])
+    #binding.pry
 
     #if there's a new title, add the new title
     if !params[:title][:name].empty?
+      #binding.pry 
       @title = Title.create(name: params[:title][:name])
       @figure.titles << @title
     end 
@@ -25,6 +27,7 @@ class FiguresController < ApplicationController
     #If there's a new landmark, add the new landmark
     if !params[:landmark][:name].empty?
       @landmark = Landmark.create(name: params[:landmark][:name])
+      #binding.pry
       @landmark.figure = @figure
       @landmark.save
     end 
