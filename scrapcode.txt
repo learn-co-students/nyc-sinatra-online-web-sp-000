@@ -1,0 +1,14 @@
+#Return the landmark ids to a damn integer, find the landmark, and set the landmark's figure to the current figure object
+    @landmark_ids = params[:figure][:landmark_ids]
+    #Assign the array of landmark IDs to a variable
+    @landmark_ids.each do |id|
+        #To each item in the array...
+        n = id.gsub("landmark_", "").to_i
+        #Strip all the decoratext and turn it back to an integer
+        @landmark = Landmark.find(n)
+        #Find the landmark by that integer
+        @landmark.figure = @figure
+        #Assign the landmark to the figure object currently in question
+        @landmark.save 
+        #Save it?
+    end
