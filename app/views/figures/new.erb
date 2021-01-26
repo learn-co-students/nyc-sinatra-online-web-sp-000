@@ -1,0 +1,20 @@
+CREATE NEW FIGURE:
+<form action="/figures" method="post">
+    Name:<input type="text" name="figure[name]" id="figure_name"><br>
+
+    Tilte(s):<br>
+    <% Title.all.each do |title| %>
+      <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]"  value="<%= title.id %>"> <%= title.name %><br> 
+    <%end%>
+   
+    Create new title: <br>
+    <input type="text" id="new_title" name="title[name]"><br>
+
+    Landmark(s): <br>
+    <% Landmark.all.each do |landmark| %>
+        <input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%= landmark.name%><br>
+    <%end%>
+    Create new landmark: <br>
+    Name:<input type="text" id="new_landmark" name="landmark[name]"><br>
+    <input type="submit" value="Create New Figure" >
+</form>
