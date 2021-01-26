@@ -13,7 +13,7 @@ describe FiguresController do
   after do
     Figure.destroy_all
     Title.destroy_all
-    Landmark.destroy_all
+    Landmark.destroy_all 
   end
 
   it "allows you to view form to create a new figure" do
