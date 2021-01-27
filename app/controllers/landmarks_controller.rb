@@ -6,7 +6,7 @@ class LandmarksController < ApplicationController
     erb :'landmarks/index'
   end
 
-  get '/landmarks/new' do
+  get '/landmarks/new' do     #view form to create new landmark
     erb :'landmarks/new'
   end
 end
