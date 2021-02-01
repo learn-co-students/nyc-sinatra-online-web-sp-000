@@ -1,1 +1,9 @@
-<h1>check</h1>
+<h1><%= @figure.name %></h1>
+
+<h3>Landmarks: </h3>
+
+<ul>
+  <% @figure.landmarks.each do |landmark| %>
+    <li><%= landmark.name %></li>
+  <% end %>
+</ul>
