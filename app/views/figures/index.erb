@@ -1,0 +1,5 @@
+<ul>
+<% @figures.each do |figure| %>
+    <li><a href='/figures/<%= figure.slug %>'><%= figure.name %></a></li>
+<% end %>
+</ul>
