@@ -1,0 +1,15 @@
+<h1><%=@figure.name%></h1>
+
+<h3>Landmarks:</h3>
+<p><%@figure.landmarks.each do |landmark| %>
+    <%=landmark.name%><br>
+<%end%></p>
+
+<h3>Titles:</h3>
+<p><%@figure.titles.each do |title| %>
+    <%=title.name%><br>
+<%end%></p>
+
+<form method="GET" action="/figures/<%=@figure.id%>/edit">
+    <input type="submit" value="Edit Figure">
+</form>
