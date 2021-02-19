@@ -2,5 +2,22 @@
 
 <!-- add content here -->
 
+<form action="/landmarks/<%= @landmark.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<input type="text" id = "name" name="landmark[name]" placeholder = "<%= @landmark.name %>">
+<br>
+<input type="text" id = "year_completed" name="landmark[year_completed]" placeholder = "<%= @landmark.year_completed %>">
+
+<h3>Titles</h3>
+  <% @titles.each do |title| %>
+    <input type="checkbox" id="<%= title.name %>" value="<%= title.id %>"><%= title.name %><br>
+  <% end %>
+<br>
+
+<input type="submit" id = "Edit Landmark"value="Edit Landmark">
+</form>
+
+
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
