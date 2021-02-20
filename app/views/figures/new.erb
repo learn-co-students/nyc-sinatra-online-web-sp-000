@@ -10,7 +10,7 @@
     <input type="checkbox" name="figure[title_ids][]" id="<%= title.id %>" value="<%= title.id%>"><%= title.name %><br>
     <% end %>
     <br>    
-    <label for=title_name>Create a New Title :</label><br>
+    <label for=new_title>Create a New Title :</label><br>
     <input type="text" name="title[name]" id="new_title"><br>
     <br>
     <h1>Landmarks</h1>
@@ -18,7 +18,7 @@
     <input type="checkbox" name="figure[landmark_ids][]" id="<%= landmark.id %>" value="<%= landmark.id%>"><%= landmark.name %><br>
     <% end %>
     <br>    
-    <label for=landmark_name>Create a New Landmark :</label><br>
+    <label for=new_landmark>Create a New Landmark :</label><br>
     <input type="text" name="landmark[name]" id="new_landmark"><br>
     <br>    
     <input type="submit" value="Create New Figure">
