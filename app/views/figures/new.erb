@@ -3,23 +3,23 @@
 <form action="/figures" method="POST">
     
     <label for=new_figure>Figure Name :</label><br>
-    <input type="text" name="figure[name]" id="name"><br>
+    <input type="text" name="figure[name]" id="figure_name"><br>
 
     <h1>Titles</h1>
     <% Title.all.each do |title| %>
-    <input type="checkbox" name="figure[title_ids][]" id="<%= title.name %>" value="<%= title.id%>"><%= title.name %><br>
+    <input type="checkbox" name="figure[title_ids][]" id="<%= title.id %>" value="<%= title.id%>"><%= title.name %><br>
     <% end %>
     <br>    
     <label for=title_name>Create a New Title :</label><br>
-    <input type="text" name="title[name]" id="title_name"><br>
+    <input type="text" name="title[name]" id="new_title"><br>
     <br>
     <h1>Landmarks</h1>
     <% Landmark.all.each do |landmark| %>
-    <input type="checkbox" name="figure[landmark_ids][]" id="<%= landmark.name %>" value="<%= landmark.id%>"><%= landmark.name %><br>
+    <input type="checkbox" name="figure[landmark_ids][]" id="<%= landmark.id %>" value="<%= landmark.id%>"><%= landmark.name %><br>
     <% end %>
     <br>    
     <label for=landmark_name>Create a New Landmark :</label><br>
-    <input type="text" name="landmark[name]" id="landmark_name"><br>
+    <input type="text" name="landmark[name]" id="new_landmark"><br>
     <br>    
     <input type="submit" value="Create New Figure">
 
