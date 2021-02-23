@@ -5,9 +5,10 @@
 
 
      Edit <%= @landmark.name %>: <br>
-    Name: <input type="text" name="landmark[name]" id="landmark_name"><br>
-    Year Completed: <input type="text" name="landmark[year_completed]" id="landmark_year_completed" ><br>
-    <input type="submit" value="update_landmark">
+     Year Completed <%= @landmark.year_completed %>: <br>
+    Name: <input type="text" name="landmark[name]" id="name"><br>
+    Year Completed: <input type="text" name="landmark[year_completed]" id="year_completed" ><br>
+    <input type="submit" value="Edit Landmark">
 </form>    
 
 
