@@ -1,0 +1,23 @@
+<h2>Create New Figure</h2>
+<form action="/figure" method="post">
+
+  <label for="figure_name"> Figure Name:</label>
+  <input type="text" name="figure_name" id="figure[name]"><br>
+
+  <label for="figure_title_ids"> Figure Title Id:</label>
+  <input type="text" name="figure_title_ids" id="figure[title_ids][]"><br>
+
+  <label for="figure_landmark_ids"> Figure Landmark Id:</label>
+  <input type="text" name="figure_landmark_ids" id="figure[landmark_ids][]"><br>
+
+  <label for="landmark_name"> Landmark Name:</label>
+  <input type="text" name="landmark_name" id="landmark[name]"><br>
+
+  <label for="title_name"> Title Name:</label>
+  <input type="text" name="title_name" id="title[name]"><br>
+
+  <label for="title_#{Title.first.id}"> Figure Title:</label>
+  <input type="checkbox" name="title_#{Title.first.id}" id="title_#{Title.first.id}"><br>
+
+  <input type="submit" value="Create New Figure">
+</form>
