@@ -1,38 +1,34 @@
 class LandmarksController < ApplicationController
-  # add controller methods
+  get '/landmarks' do    #read - shows index page for landmarks
+      @landmarks = Landmark.all
+      @figures = Figure.all
+      erb :'landmarks/index'
+  end
 
-  get '/landmarks/new' do
-    erb :'landmarks/new'
+  get '/landmarks/new' do   #create - shows new page to create landmarks
+      erb :'landmarks/new'
+  end
+
+  get '/landmarks/:id' do  #shows = shows landmark by id
+      @landmark = Landmark.find(params[:id])
+      erb :"landmarks/show"
+  end
+
+  get '/landmarks/:id/edit' do  #update - shows edit page to edit landmarks
+    @landmark = Landmark.find(params[:id])
+    erb :"landmarks/edit"
+  end
+
+  post '/landmarks/:id' do
+    @landmark = Landmark.find(params[:id])
+    @landmark.name = params['landmark']['name']
+    @landmark.year_completed = params['landmark']['year_completed']
+    @landmark.save
+    redirect to "/landmarks/#{@landmark.id}"
   end
 
   post '/landmarks' do
-    landmark = Landmark.create(params[:landmark])
-    landmark.save
-    @landmarks = Landmark.all
-    @landmarks << landmark
-    erb :'landmarks/index'
+    Landmark.create(name: params['landmark']['name'], year_completed: params['landmark']['year_completed'])
+    redirect '/landmarks'
   end
-
-  get '/landmarks' do
-    @landmarks = Landmark.all
-    erb :'landmarks/index'
-  end
-
-  get '/landmarks/:id' do
-    @landmark = Landmark.find_by(params[:id])
-    erb :'landmarks/show'
-  end
-
-  get '/landmarks/:id/edit' do
-    @landmark = Landmark.find_by(params[:id])
-    erb :'landmarks/edit'
-  end
-
-  patch '/landmarks/:id' do
-    @updated_landmark = Landmark.find_by(params[:id])
-    @updated_landmark.update(params[:name], params[:year_completed])
-    @updated_landmark.save
-    redirect("/landmarks/#{@updated_landmark.id}")
-  end
-
 end
