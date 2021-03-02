@@ -22,7 +22,7 @@ class FiguresController < ApplicationController
     @figure = Figure.find_by_id(params[:id])
     @titles = Title.all
     @landmarks = Landmark.all
-    erb :'figures/edit'
+    erb :'/figures/edit'
   end
 
   post '/figures' do
