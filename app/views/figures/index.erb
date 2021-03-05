@@ -1,0 +1,5 @@
+<h1>Select a Figure to view below:</h1>
+<% @figures.each do |figure| %>
+<h2><%= figure.name %></h2>
+<a href="/figures/<%= figure.id %>">Show Figure:</a>
+<% end %>
