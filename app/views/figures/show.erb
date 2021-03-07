@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1><%=@figure.name%>'s Page</h1>
+    <h2>Titles</h2>
+    <%@figure.titles.each do |title|%>
+        <%=title.name%>
+    <%end%>
+    <br>
+    <h2>Landmarks</h2>
+    <%@figure.landmarks.each do |landmark|%>
+        <%=landmark.name%>
+    <%end%>
+    <br>
+    <a href="/figures">Go Home</a>
+  </body>
+</html>
