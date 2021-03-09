@@ -12,14 +12,16 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    #binding.pry
+    # binding.pry
     @figure = Figure.create(params[:figure])
     if params["title"]["name"] != ""
-      @title = Title.create(params["title"]["name"])
+      @title = Title.create(name: params["title"]["name"])
       @figure.titles << @title
     end
-    if params["landmark"]["name"] && !params["landmark"]["title"] != ""
-      @landmark = Landmark.create(params["landmark"]["name"], params["landmark"]["year"])
+    if params["landmark"]["name"] && !params["landmark"]["year"] != ""
+      @landmark = Landmark.create(params[:landmark])
+      @landmark.name = params["landmark"]["name"]
+      @landmark.year_completed = params["landmark"]["year"]
       @figure.landmarks << @landmark
     end
     @figure.save
