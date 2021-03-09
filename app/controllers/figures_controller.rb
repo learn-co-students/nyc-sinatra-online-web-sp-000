@@ -12,10 +12,16 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    binding.pry
+    #binding.pry
     @figure = Figure.create(params[:figure])
-    @figure.landmark = params["landmarks"]
-    @figure.titles = params["titles"]
+    if params["title"]["name"] != ""
+      @title = Title.create(params["title"]["name"])
+      @figure.titles << @title
+    end
+    if params["landmark"]["name"] && !params["landmark"]["title"] != ""
+      @landmark = Landmark.create(params["landmark"]["name"], params["landmark"]["year"])
+      @figure.landmarks << @landmark
+    end
     @figure.save
     redirect to "/figures/#{@figure.id}"
   end
