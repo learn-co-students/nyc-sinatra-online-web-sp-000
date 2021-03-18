@@ -17,8 +17,7 @@ class LandmarksController < ApplicationController
 
   post '/landmarks' do 
     landmark = Landmark.create(:name => params[:landmark][:name], :year_completed => params[:landmark][:year_completed])
-    figure = Figure.find_by(:name => params[:figure][:name])
-    erb :"/landmarks/#{landmark.id}"
+    redirect"/landmarks/#{landmark.id}"
   end
 
   get '/landmarks/:id/edit' do 
@@ -30,6 +29,6 @@ class LandmarksController < ApplicationController
     landmark = Landmark.find(params[:id])
     landmark.update(:name => params[:landmark][:name])
     landmark.update(:year_completed => params[:landmark][:year_completed])
-    redirect "/landmarks/#{@landmark.id}"
+    redirect "/landmarks/#{landmark.id}"
   end
 end
