@@ -1,6 +1,14 @@
 <h2>All Historical Landmarks</h2>
 
-<!-- add content here -->
+<p>
 
-<a class="button" href="/figures">Figures</a>
+<% @landmarks.each do |landmark| %>
+    <%= landmark.name %>
+    <%= landmark.year_completed %>
+    
+<% end %>
+
+</p>
+
+<a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
