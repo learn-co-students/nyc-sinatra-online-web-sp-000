@@ -47,7 +47,7 @@ Write migrations to create the following tables:
 |   5    |     Boss Tweed     |
 |   6    | Michael Bloomberg  |
 |   7    |      Ed Koch       |
-|   8    | Fiorello LaGuardia |
+|   8    | Fiorello LaGuardia | 1
 |   9    |    Jimmy Walker    |
 |   10   |  Belle Moskowitz   |
 
