@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Figures</title>
+  </head>
+
+  <body>
+    <h2> Figure Information</h2>
+    <h3>Figure Name: <%= @figure.name %></h3>
+
+    <p>Titles: <%= @figure.titles.map { |t| t.name }.join(", ") %></a> </p>
+    <p>Landmarks: <%= @figure.landmarks.map { |l| l.name }.join(", ") %></a> </p>
+
+  </body>
+</html>
