@@ -18,7 +18,7 @@ class FiguresController < ApplicationController
         @figure.titles << Title.find(t)
       end
     end
-   
+
 
     if !params[:title][:name].strip.empty?
       @figure.titles << Title.create(name: params[:title][:name])
@@ -26,7 +26,7 @@ class FiguresController < ApplicationController
 
     if !params[:figure][:landmark_ids].nil?
       params[:figure][:landmark_ids].each do |landmark|
-        @figure.landmarks << Landmark.find_or_create(l)
+        @figure.landmarks << Landmark.find(landmark)
       end
     end
 
@@ -61,8 +61,8 @@ class FiguresController < ApplicationController
     end
 
     if !params[:figure][:landmark_ids].nil?
-      params[:figure][:landmark_ids].each do |landmark_id|
-        @figure.landmarks << Landmark.find(landmark_id)
+      params[:figure][:landmark_ids].each do |landmark|
+        @figure.landmarks << Landmark.find(landmark)
       end
     end
 
