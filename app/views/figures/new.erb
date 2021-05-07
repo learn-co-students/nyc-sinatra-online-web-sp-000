@@ -19,6 +19,7 @@
       <input type="text" name="title[name]" id="new_title">
       <br></br>
       <label>Select landmarks:</label>
+      
       <%Landmark.all.each do |l|%>
         <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=l.id%>" value="landmark_<%=l.id%>"><%=l.name%></input>
       <%end%>
@@ -26,6 +27,7 @@
 
       <label>Or, make a new landmark</label>
       <input type="text" name="landmark[name]" id="new_landmark" value="landmark">
+      <input type="text" name="landmark[year_completed]" id="new_landmark " value="landmark">
       </br>
       </br>
 
