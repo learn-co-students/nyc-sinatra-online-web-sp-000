@@ -17,10 +17,11 @@ class FiguresController < ApplicationController
     @figure.landmarks = Landmark.find_or_create_by(name: params[:landmark][:name])
     @figure.titles = Title.find_or_create_by(name: params[:title][:name])
     @figure.save
+    # binding.pry
     redirect to("/figures/#{@figure.id}")
   end
 
   get '/figures/id' do
-    
+
   end
 end
