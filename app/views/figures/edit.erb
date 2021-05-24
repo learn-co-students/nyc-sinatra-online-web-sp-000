@@ -3,7 +3,8 @@
   <input type="hidden" name="_method" value="patch">
 
   <label>Edit Name</label>
-  <input type="text" id="figure_name" name="figure[name]" value="<%= @figure.name %>"><br></br>
+  <!-- <input type="text" id="figure_name" name="figure[name]" value="<%= @figure.name %>"><br></br> -->
+  <input type="text" id="figure_name" name="figure[name]" value="<%= @figure.name%>"><br></br>
 
   <label>Edit Landmarks:</label><br>
   <% Landmark.all.each do |landmark| %>

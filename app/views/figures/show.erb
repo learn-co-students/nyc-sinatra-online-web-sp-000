@@ -1,7 +1,12 @@
 <!DOCTYPE html>
   <head>
     <h4><%= @figure.name %></h4>
-    <li><%= @figure.titles %></li>
-    <li><%= @figure.landmarks %></li>
+    <% @figure.titles.each do |title| %>
+    <li><%= title.name %></li>
+    <% end %>
+    <br>
+    <% @figure.landmarks.each do |landmark| %>
+    <li><%= landmark.name %></li>
+    <% end %>
   </head>
 </html>
