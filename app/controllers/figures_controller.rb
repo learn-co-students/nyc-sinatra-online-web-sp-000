@@ -14,7 +14,6 @@ class FiguresController < ApplicationController
     @figure = Figure.create(params[:figure])
     @figure.titles << Title.create(params[:title])
     @figure.landmarks << Landmark.create(params[:landmark])
-
     redirect to "/figures/#{@figure.id}"
   end
 
@@ -24,6 +23,7 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/:id/edit' do
+    binding.pry
     @figure = Figure.find(params[:id])
     erb :'/figures/edit'
   end
